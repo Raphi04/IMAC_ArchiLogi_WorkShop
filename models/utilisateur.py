@@ -27,7 +27,7 @@ def get(idName) :
     myCursor = myDb.cursor()
 
     # On récupère les informations d'un utilisateur
-    sql = f'''SELECT * FROM utilisateurs WHERE idName = "{idName}"'''
+    sql = f'''SELECT idName, username FROM utilisateurs WHERE idName = "{idName}"'''
     myCursor.execute(sql)
     data = myCursor.fetchall()
 
@@ -36,7 +36,6 @@ def get(idName) :
             "user": {
                 "idName" : data[0][0],
                 "username" : data[0][1],
-                "pwd" : data[0][2],
             },
             "code" : 200
         }
