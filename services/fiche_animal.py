@@ -6,7 +6,7 @@ import models.espece as especeModel
 
 def createFiche_animal(name, idName, idEspece) :
     # On vérifie que c'est correctement formater
-    name = idName.strip()
+    name = name.strip()
 
     if(not name) :
         response = {

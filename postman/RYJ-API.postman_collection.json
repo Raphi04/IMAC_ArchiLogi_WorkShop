@@ -1,10 +1,10 @@
 {
   "info": {
-    "_postman_id": "93a7a17c-4e69-46cc-be84-d404a6d430ba",
+    "_postman_id": "6ed7bd92-db71-4610-908b-93e2a4f589c8",
     "name": "RYJ-API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "56106402",
-    "_collection_link": "https://go.postman.co/collection/56106402-93a7a17c-4e69-46cc-be84-d404a6d430ba?source=collection_link"
+    "_exporter_id": "33314477",
+    "_collection_link": "https://go.postman.co/collection/33314477-6ed7bd92-db71-4610-908b-93e2a4f589c8?source=collection_link"
   },
   "item": [
     {
@@ -332,6 +332,122 @@
         },
         {
           "name": "DELETE Fiche animal",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"idAnimal\" : 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/fiche_animal",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "fiche_animal"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Commentaire",
+      "item": [
+        {
+          "name": "GET Commentaire",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"idAnimal\" : 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/fiche_animal",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "fiche_animal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Commentaire",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\" : \"Juju\",\r\n    \"idName\" : \"cherrierbgdu77\",\r\n    \"idEspece\" : 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/fiche_animal",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "fiche_animal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Commentaire",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"idAnimal\" : 1,\r\n    \"name\" : \"Patrick\",\r\n    \"idName\" : \"cherrierbgdu77\",\r\n    \"idEspece\" : 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/fiche_animal",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "fiche_animal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Commentaire",
           "request": {
             "method": "DELETE",
             "header": [],

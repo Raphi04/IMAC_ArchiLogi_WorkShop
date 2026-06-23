@@ -2,8 +2,9 @@ from flask import Flask,request,render_template,jsonify,abort
 from flask_cors import CORS
 
 import services.utilisateur as userService
-import services.espece as especeService
 import services.fiche_animal as fiche_animalService
+import services.espece as especeService
+import services.commentaire as commentaireService
 
 app = Flask(__name__)
 CORS(app)
@@ -67,4 +68,24 @@ def espece():
 
     if(request.method == "DELETE") :
         response = especeService.deleteEspece(json["idEspece"])
+        return response
+
+@app.route("/commentaire", methods=["POST", "GET", "PUT", "DELETE"])
+def commentaire():
+    json = request.get_json()
+
+    if(request.method == "POST") :
+        response = commentaireService.createCommentaire(json["idName"], json["idAnimal"], json["commentaire"])
+        return response
+
+    if(request.method == "GET") :
+        response = commentaireService.getCommentaire(json["idName"], json["idAnimal"])
+        return response
+    
+    if(request.method == "PUT") :
+        response = commentaireService.updateCommentaire(json["idName"], json["idAnimal"], json["commentaire"])
+        return response
+
+    if(request.method == "DELETE") :
+        response = commentaireService.deleteCommentaire(json["idName"], json["idAnimal"])
         return response
