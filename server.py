@@ -156,20 +156,37 @@ def participe():
     
 @app.route("/note", methods=["POST", "GET", "PUT", "DELETE"])
 def note():
-    json = request.get_json()
-
     if(request.method == "POST") :
+        json = request.get_json()
         response = noteService.createNote(json["idName"],json["idAnimal"],json["note"])
         return response
 
     if(request.method == "GET") :
-        response = noteService.getNote(json["idName"], json["idAnimal"])
+        response = noteService.getNoteAll()
         return response
     
     if(request.method == "PUT") :
+        json = request.get_json()
         response = noteService.updateNote(json["idNote"],json["idName"],json["idAnimal"],json["note"])
         return response
 
     if(request.method == "DELETE") :
-        response = noteService.deleteNote(json["idNote"],json["idName"],json["idAnimal"])
+        json = request.get_json()
+        response = noteService.deleteNote(json["idNote"])
         return response
+
+@app.route("/note/<idNote>", methods=["GET"])
+def noteById(idNote):
+        response = noteService.getNoteById(idNote)
+        return response
+
+@app.route("/note/<idName>/<idNote>", methods=["PUT"])
+def noteByUser(idName, idNote):
+        json = request.get_json()
+        response = noteService.updateNoteByUser(idName, idNote, json["note"])
+        return response
+
+@app.route("/note/utilisateur/<idName>", methods=["GET"])
+def noteUtilisateurById(idName):
+    response = noteService.getNoteUtilisateurById(idName)
+    return response

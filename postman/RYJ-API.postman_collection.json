@@ -12,12 +12,24 @@
       "item": [
         {
           "name": "GET User",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "auth": {
               "type": "noauth"
             },
             "method": "GET",
             "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"idName\" : \"mrraphi04\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
               "raw": "localhost:5000/utilisateur",
               "host": [
@@ -41,7 +53,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idName\" : \"cherrierbgdu77\",\r\n    \"username\": \"CherrierGaming\",\r\n    \"pwd\": \"canicuuuuuule\"\r\n}",
+              "raw": "{\r\n    \"idName\" : \"mrraphi04\",\r\n    \"username\": \"MrRaphi\",\r\n    \"pwd\": \"poisson\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -71,7 +83,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"previousIdName\": \"cherrierbgdu77\",\r\n    \"idName\" : \"cherrierbgdu77\",\r\n    \"username\": \"CherrierGaming\",\r\n    \"pwd\": \"canicuuuuuule\"\r\n}",
+              "raw": "{\r\n    \"previousIdName\": \"mrraphi04\",\r\n    \"idName\" : \"mrraphi04\",\r\n    \"username\": \"MrRaphi04\",\r\n    \"pwd\": \"aaaaa\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -101,7 +113,12 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idName\" : \"cherrierbgdu77\"\r\n}"
+              "raw": "{\r\n    \"idName\" : \"cherrierbgdu77\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": {
               "raw": "localhost:5000/utilisateur",
@@ -111,6 +128,434 @@
               "port": "5000",
               "path": [
                 "utilisateur"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Note",
+      "item": [
+        {
+          "name": "GET All Notes",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"idNote\" : 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/note",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "note"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Note By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:5000/note/3",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "note",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Note By User",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"idNote\" : 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/note/utilisateur/mrraphi04",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "note",
+                "utilisateur",
+                "mrraphi04"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Note",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n    \"idName\" : \"mrraphi04\",\r\n    \"idAnimal\" : 4,\r\n    \"note\" : 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/note",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "note"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Note",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"idNote\" : 3,\r\n    \"idName\" : \"mrraphi04\",\r\n    \"idAnimal\" : 4 ,\r\n    \"note\" : 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/note",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "note"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Note By User",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"note\" : 5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/note/mrraphi04/3",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "note",
+                "mrraphi04",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Note",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"idNote\" : 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/note",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "note"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Commentaire",
+      "item": [
+        {
+          "name": "GET Commentaire",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"idCommentaire\" : 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/commentaire",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "commentaire"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Commentaire",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"idName\" : \"mrraphi04\",\r\n    \"idAnimal\" : 4,\r\n    \"commentaire\" : \"blablabla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/commentaire",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "commentaire"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Commentaire",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"idCommentaire\" : 2,\r\n    \"commentaire\" : \"Gloubiboulga\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/commentaire",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "commentaire"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Commentaire",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"idCommentaire\" : 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/commentaire",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "commentaire"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Fiche animal",
+      "item": [
+        {
+          "name": "GET Fiche animal",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"idAnimal\" : 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/fiche_animal",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "fiche_animal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Fiche animal",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\" : \"Juju\",\r\n    \"idName\" : \"mrraphi04\",\r\n    \"idEspece\" : 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/fiche_animal",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "fiche_animal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Fiche animal",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"idAnimal\" : 3,\r\n    \"name\" : \"Patrick\",\r\n    \"idName\" : \"mrraphi04\",\r\n    \"idEspece\" : 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/fiche_animal",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "fiche_animal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Fiche animal",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"idAnimal\" : 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5000/fiche_animal",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "fiche_animal"
               ]
             }
           },
@@ -131,7 +576,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idEspece\": 2\r\n}",
+              "raw": "{\r\n    \"idEspece\": 3\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -161,7 +606,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"name\" : \"Asterion\"\r\n}",
+              "raw": "{\r\n    \"name\" : \"Julien\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -191,7 +636,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idEspece\" : 2,\r\n    \"name\" : \"Julien\"\r\n}",
+              "raw": "{\r\n    \"idEspece\" : 3,\r\n    \"name\" : \"Raphael\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -221,7 +666,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idEspece\" : 3\r\n}",
+              "raw": "{\r\n    \"idEspece\" : 2\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -236,122 +681,6 @@
               "port": "5000",
               "path": [
                 "espece"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Fiche animal",
-      "item": [
-        {
-          "name": "GET Fiche animal",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"idAnimal\" : 1\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "localhost:5000/fiche_animal",
-              "host": [
-                "localhost"
-              ],
-              "port": "5000",
-              "path": [
-                "fiche_animal"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "POST Fiche animal",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"name\" : \"Juju\",\r\n    \"idName\" : \"cherrierbgdu77\",\r\n    \"idEspece\" : 2\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "localhost:5000/fiche_animal",
-              "host": [
-                "localhost"
-              ],
-              "port": "5000",
-              "path": [
-                "fiche_animal"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "PUT Fiche animal",
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"idAnimal\" : 4,\r\n    \"name\" : \"Patrick\",\r\n    \"idName\" : \"cherrierbgdu77\",\r\n    \"idEspece\" : 2\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "localhost:5000/fiche_animal",
-              "host": [
-                "localhost"
-              ],
-              "port": "5000",
-              "path": [
-                "fiche_animal"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "DELETE Fiche animal",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"idAnimal\" : 4\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "localhost:5000/fiche_animal",
-              "host": [
-                "localhost"
-              ],
-              "port": "5000",
-              "path": [
-                "fiche_animal"
               ]
             }
           },
@@ -488,7 +817,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idActivite\" : 1\r\n}",
+              "raw": "{\r\n    \"idInclue\" : 1\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -515,7 +844,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idEspece\" : 2,\r\n    \"idActivite\" : 1\r\n}",
+              "raw": "{\r\n    \"idEspece\" : 3,\r\n    \"idActivite\" : 1\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -542,7 +871,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idInclue\" : 3,\r\n    \"idEspece\" : 1,\r\n    \"idActivite\" : 2\r\n}",
+              "raw": "{\r\n    \"idInclue\" : 1,\r\n    \"idEspece\" : 3,\r\n    \"idActivite\" : 1\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -569,7 +898,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idActivite\" : 1\r\n}",
+              "raw": "{\r\n    \"idInclue\" : 1\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -592,122 +921,6 @@
       ]
     },
     {
-      "name": "Note",
-      "item": [
-        {
-          "name": "GET Note",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"idNote\" : 2\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "localhost:5000/note",
-              "host": [
-                "localhost"
-              ],
-              "port": "5000",
-              "path": [
-                "note"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "POST Note",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n\r\n    \"idName\" : \"testa\",\r\n    \"idAnimal\" : 2,\r\n    \"note\" : 1\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "localhost:5000/note",
-              "host": [
-                "localhost"
-              ],
-              "port": "5000",
-              "path": [
-                "note"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "PUT Note",
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"idNote\" : 10,\r\n    \"idName\" : \"testa\",\r\n    \"idAnimal\" : 2 ,\r\n    \"note\" : 5\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "localhost:5000/note",
-              "host": [
-                "localhost"
-              ],
-              "port": "5000",
-              "path": [
-                "note"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "DELETE Note",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"idActivite\" : 2\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "localhost:5000/note",
-              "host": [
-                "localhost"
-              ],
-              "port": "5000",
-              "path": [
-                "note"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
       "name": "Participe",
       "item": [
         {
@@ -720,7 +933,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idAnimal\" : 1\r\n}",
+              "raw": "{\r\n    \"idParticipe\" : 2\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -728,13 +941,13 @@
               }
             },
             "url": {
-              "raw": "localhost:5000/fiche_animal",
+              "raw": "localhost:5000/participe",
               "host": [
                 "localhost"
               ],
               "port": "5000",
               "path": [
-                "fiche_animal"
+                "participe"
               ]
             }
           },
@@ -747,7 +960,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"name\" : \"Juju\",\r\n    \"idName\" : \"cherrierbgdu77\",\r\n    \"idEspece\" : 2\r\n}",
+              "raw": "{\r\n    \"idName\" : \"mrraphi04\",\r\n    \"idAnimal\" : 4,\r\n    \"idActivite\" : 1,\r\n    \"date\" : \"2026-07-23\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -755,13 +968,13 @@
               }
             },
             "url": {
-              "raw": "localhost:5000/fiche_animal",
+              "raw": "localhost:5000/participe",
               "host": [
                 "localhost"
               ],
               "port": "5000",
               "path": [
-                "fiche_animal"
+                "participe"
               ]
             }
           },
@@ -774,7 +987,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idAnimal\" : 4,\r\n    \"name\" : \"Patrick\",\r\n    \"idName\" : \"cherrierbgdu77\",\r\n    \"idEspece\" : 2\r\n}",
+              "raw": "{\r\n    \"idParticipe\" : 2,\r\n    \"idName\" : \"mrraphi04\",\r\n    \"idAnimal\" : 4,\r\n    \"idActivite\" : 1,\r\n    \"date\" : \"2027-06-23\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -782,13 +995,13 @@
               }
             },
             "url": {
-              "raw": "localhost:5000/fiche_animal",
+              "raw": "localhost:5000/participe",
               "host": [
                 "localhost"
               ],
               "port": "5000",
               "path": [
-                "fiche_animal"
+                "participe"
               ]
             }
           },
@@ -801,7 +1014,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idParticipe\" : 1\r\n}",
+              "raw": "{\r\n    \"idParticipe\" : 4\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -809,13 +1022,13 @@
               }
             },
             "url": {
-              "raw": "localhost:5000/fiche_animal",
+              "raw": "localhost:5000/participe",
               "host": [
                 "localhost"
               ],
               "port": "5000",
               "path": [
-                "fiche_animal"
+                "participe"
               ]
             }
           },
