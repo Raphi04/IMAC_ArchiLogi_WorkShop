@@ -3,11 +3,10 @@ from flask import jsonify
 import models.utilisateur as utilisateurModel
 
 def createUtilisateur(idName, username, pwd) :
+    # On vérifie que c'est correctement formater
     idName = idName.strip()
     username = username.strip()
     pwd = pwd.strip()
-
-    # On vérifie que c'est correctement formater
 
     if(not idName) :
         response = {
@@ -130,7 +129,7 @@ def updateUtilisateur(previousIdName, idName, username, pwd) :
     if(previousIdName != idName) :
         check = utilisateurModel.get(idName)
 
-        if(check["code"] == 403) :
+        if(check["code"] == 404) :
 
             # On modifie l'utilisateur
             utilisateurModel.update(previousIdName, idName, username, pwd)
@@ -168,7 +167,7 @@ def deleteUtilisateur(idName) :
     # On vérifie que l'utilisateur existe
     check = utilisateurModel.get(idName)
 
-    if(check["code"] == 403) :
+    if(check["code"] == 404) :
         response = {
             "message" : "Utilisateur n'existe pas",
             "code" : 404
