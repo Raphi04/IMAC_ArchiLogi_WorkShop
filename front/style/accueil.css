@@ -234,3 +234,19 @@
         justify-content: center;
     }
 }
+
+.commentaire1{
+    background-color: var(--gris3);
+    border: 1px solid black;
+    border-radius: 0.25rem;
+    color: black;
+    padding: 0.25rem 0.75rem;
+}
+
+.submitCommentaire{
+    background-color: var(--white);
+    border: 1px solid black;
+    border-radius: 0.25rem;
+    color: black;
+    padding: 0.25rem 0.75rem;
+}
