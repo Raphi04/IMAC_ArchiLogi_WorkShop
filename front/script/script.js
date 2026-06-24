@@ -33,7 +33,7 @@ function isSelected(animalNumber){
         selected.style.borderColor="#000000"
         selected.style.color="#000000"
         isSelectedOrNot++
-    }else if(isSelectedOrNot==1){
+    }else if(isSelectedOrNot%2==1){
         selected.value="Sélectionné"
         selected.style.backgroundColor="#2D7819"
         selected.style.borderColor="#2D7819"
