@@ -47,7 +47,7 @@ def createParticipe(idName, idAnimal, idActivite, date) :
         return response
 
     # On vérifie que l'idName existe
-    checkUser = utilisateurModel.get(idName)
+    checkUser = utilisateurModel.getUtilisateurById(idName)
 
     if(checkUser["code"] == 404) :
         # L'utilisateur n'existe pas
@@ -58,7 +58,7 @@ def createParticipe(idName, idAnimal, idActivite, date) :
         return response
 
     # On vérifie que l'idAnimal existe
-    checkAnimal = fiche_animalModel.get(idAnimal)
+    checkAnimal = fiche_animalModel.getById(idAnimal)
 
     if(checkAnimal["code"] == 404) :
         # La fiche animal n'existe pas
@@ -69,7 +69,7 @@ def createParticipe(idName, idAnimal, idActivite, date) :
         return response
 
     # On vérifie que l'idActivite existe
-    checkActivite = activiteModel.get(idActivite)
+    checkActivite = activiteModel.getActiviteById(idActivite)
 
     if(checkActivite["code"] == 404) :
         # L'activité n'existe pas
@@ -79,18 +79,40 @@ def createParticipe(idName, idAnimal, idActivite, date) :
         }
         return response
 
-    # On créé la fiche animal
-    participeModel.create(idName, idAnimal, idActivite, date)
+    # On vérifie que l'animal à le droit de participer
+    idEspece = fiche_animalModel.getById(idAnimal)["fiche_animal"]["espece"]["idEspece"]
+
+    especesParticipante = activiteModel.getEspecesByActiviteId(idActivite)["especes"]
+
+    for especeParticipante in especesParticipante :
+        if(idEspece == especeParticipante["idEspece"]):
+            # On créé la fiche animal
+            participeModel.create(idName, idAnimal, idActivite, date)
+            
+            # On renvoie une réponse
+            response = {
+                "message" : "La participation a été correctement ajouté",
+                "code" : 200
+            }
+            
+            return response
     
-    # On renvoie une réponse
+    # L'animal ne peut pas participer
     response = {
-        "message" : "La participation a été correctement ajouté",
+        "message" : "L'animal ne peut pas participer",
         "code" : 200
     }
     
     return response
 
-def getParticipe(idParticipe) :
+def getParticipeAll():
+    # On récupère les participations
+    response = participeModel.getParticipeAll()
+
+    # On renvoie les informations des participations
+    return response
+
+def getParticipeById(idParticipe) :
     # On vérifie qu'on a bien un identifiant
     if(not idParticipe) :
         response = {
@@ -100,7 +122,7 @@ def getParticipe(idParticipe) :
         return response
 
     # On récupère la fiche animal
-    response = participeModel.get(idParticipe)
+    response = participeModel.getParticipeById(idParticipe)
 
     # On renvoie les informations de la fiche animal
     return response
@@ -143,7 +165,7 @@ def updateParticipe(idParticipe, idName, idAnimal, idActivite, date) :
         return response
 
     # On vérifie que l'idParticipe existe
-    checkParticipe = participeModel.get(idParticipe)
+    checkParticipe = participeModel.getParticipeById(idParticipe)
 
     if(checkParticipe["code"] == 404) :
         # La participation n'existe pas
@@ -154,7 +176,7 @@ def updateParticipe(idParticipe, idName, idAnimal, idActivite, date) :
         return response
 
     # On vérifie que l'idName existe
-    checkName = utilisateurModel.get(idName)
+    checkName = utilisateurModel.getUtilisateurById(idName)
 
     if(checkName["code"] == 404) :
         # L'utilisateur n'existe pas
@@ -165,7 +187,7 @@ def updateParticipe(idParticipe, idName, idAnimal, idActivite, date) :
         return response
 
     # On vérifie que l'idAnimal existe
-    checkAnimal = fiche_animalModel.get(idAnimal)
+    checkAnimal = fiche_animalModel.getById(idAnimal)
 
     if(checkAnimal["code"] == 404) :
         # La fiche de l'animal n'existe pas
@@ -176,7 +198,7 @@ def updateParticipe(idParticipe, idName, idAnimal, idActivite, date) :
         return response
 
     # On vérifie que l'idActivite existe
-    checkActivite = activiteModel.get(idActivite)
+    checkActivite = activiteModel.getActiviteById(idActivite)
 
     if(checkActivite["code"] == 404) :
         # L'activité n'existe pas
@@ -218,7 +240,7 @@ def deleteParticipe(idParticipe) :
         return response
 
     # On vérifie que la participation existe
-    check = participeModel.get(idParticipe)
+    check = participeModel.getParticipeById(idParticipe)
 
     if(check["code"] == 404) :
         response = {

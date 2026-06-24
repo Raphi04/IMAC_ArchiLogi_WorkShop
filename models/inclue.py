@@ -21,7 +21,44 @@ def create(idEspece,idActivite) :
     myCursor.close()
     myDb.close()
 
-def get(idInclue) :
+def getInclueAll():
+    # Connexion à la BDD
+    myDb = connectToDB()
+    myCursor = myDb.cursor()
+
+    # On récupère toutes les inclusions
+    sql = f'''SELECT * FROM inclue'''
+    myCursor.execute(sql)
+    datas = myCursor.fetchall()
+
+    if(datas):
+        response = {
+            "inclusions" : [],
+            "code" : 200
+        }
+
+        for data in datas :        
+            response["inclusions"].append(
+                {
+                    "idInclue" : data[0],
+                    "idEspece" : data[1],
+                    "idActivite" : data[2],
+                }
+            )
+    
+    else :
+        response = {
+            "message" : "Inclusions non trouvées",
+            "code" : 404
+        }
+
+    # Fermeture de la connexion
+    myCursor.close()
+    myDb.close()
+
+    return response
+
+def getInclueById(idInclue) :
     # Connexion à la BDD
     myDb = connectToDB()
     myCursor = myDb.cursor()

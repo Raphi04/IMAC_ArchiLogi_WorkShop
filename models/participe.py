@@ -23,7 +23,46 @@ def create(idName, idAnimal, idActivite, date) :
     myCursor.close()
     myDb.close()
 
-def get(idParticipe) :
+def getParticipeAll():
+    # Connexion à la BDD
+    myDb = connectToDB()
+    myCursor = myDb.cursor()
+
+    # On récupère les informations de la note
+    sql = f'''SELECT * FROM participe'''
+    myCursor.execute(sql)
+    datas = myCursor.fetchall()
+
+    if(datas):
+        response = {
+            "participes" : [],
+            "code" : 200
+        }
+
+        for data in datas :        
+            response["participes"].append(
+                {
+                    "idParticipe" : data[0],
+                    "idName" : data[1],
+                    "idAnimal" : data[2],
+                    "idActivite" : data[3],
+                    "date" : data[4],
+                }
+            )
+    
+    else :
+        response = {
+            "message" : "Participations non trouvées",
+            "code" : 404
+        }
+
+    # Fermeture de la connexion
+    myCursor.close()
+    myDb.close()
+
+    return response
+
+def getParticipeById(idParticipe) :
     # Connexion à la BDD
     myDb = connectToDB()
     myCursor = myDb.cursor()
@@ -46,7 +85,7 @@ def get(idParticipe) :
     
     else :
         response = {
-            "message" : "Fiche animal non trouvé",
+            "message" : "Participation non trouvé",
             "code" : 404
         }
 

@@ -32,13 +32,9 @@
             },
             "url": {
               "raw": "localhost:5000/utilisateur",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "utilisateur"
-              ]
+              "path": ["utilisateur"]
             }
           },
           "response": []
@@ -65,14 +61,9 @@
             },
             "url": {
               "raw": "localhost:5000/utilisateur/connect",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "utilisateur",
-                "connect"
-              ]
+              "path": ["utilisateur", "connect"]
             }
           },
           "response": []
@@ -96,13 +87,9 @@
             },
             "url": {
               "raw": "localhost:5000/utilisateur",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "utilisateur"
-              ]
+              "path": ["utilisateur"]
             }
           },
           "response": []
@@ -126,13 +113,9 @@
             },
             "url": {
               "raw": "localhost:5000/utilisateur",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "utilisateur"
-              ]
+              "path": ["utilisateur"]
             }
           },
           "response": []
@@ -156,13 +139,9 @@
             },
             "url": {
               "raw": "localhost:5000/utilisateur",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "utilisateur"
-              ]
+              "path": ["utilisateur"]
             }
           },
           "response": []
@@ -191,13 +170,9 @@
             },
             "url": {
               "raw": "localhost:5000/note",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "note"
-              ]
+              "path": ["note"]
             }
           },
           "response": []
@@ -209,14 +184,9 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/note/4",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "note",
-                "4"
-              ]
+              "path": ["note", "4"]
             }
           },
           "response": []
@@ -240,15 +210,9 @@
             },
             "url": {
               "raw": "localhost:5000/note/utilisateur/mrraphi04",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "note",
-                "utilisateur",
-                "mrraphi04"
-              ]
+              "path": ["note", "utilisateur", "mrraphi04"]
             }
           },
           "response": []
@@ -260,15 +224,9 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/note/animal/10",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "note",
-                "animal",
-                "10"
-              ]
+              "path": ["note", "animal", "10"]
             }
           },
           "response": []
@@ -289,13 +247,9 @@
             },
             "url": {
               "raw": "localhost:5000/note",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "note"
-              ]
+              "path": ["note"]
             }
           },
           "response": []
@@ -316,14 +270,9 @@
             },
             "url": {
               "raw": "localhost:5000/note/4",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "note",
-                "4"
-              ]
+              "path": ["note", "4"]
             }
           },
           "response": []
@@ -344,15 +293,9 @@
             },
             "url": {
               "raw": "localhost:5000/note/mrraphi04/4",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "note",
-                "mrraphi04",
-                "4"
-              ]
+              "path": ["note", "mrraphi04", "4"]
             }
           },
           "response": []
@@ -364,14 +307,9 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/note/5",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "note",
-                "5"
-              ]
+              "path": ["note", "5"]
             }
           },
           "response": []
@@ -388,14 +326,9 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/commentaire/3",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "commentaire",
-                "3"
-              ]
+              "path": ["commentaire", "3"]
             }
           },
           "response": []
@@ -407,14 +340,9 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/commentaire/3",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "commentaire",
-                "3"
-              ]
+              "path": ["commentaire", "3"]
             }
           },
           "response": []
@@ -426,14 +354,9 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/commentaire/3",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "commentaire",
-                "3"
-              ]
+              "path": ["commentaire", "3"]
             }
           },
           "response": []
@@ -454,13 +377,9 @@
             },
             "url": {
               "raw": "localhost:5000/commentaire",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "commentaire"
-              ]
+              "path": ["commentaire"]
             }
           },
           "response": []
@@ -481,14 +400,9 @@
             },
             "url": {
               "raw": "localhost:5000/commentaire/2",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "commentaire",
-                "2"
-              ]
+              "path": ["commentaire", "2"]
             }
           },
           "response": []
@@ -500,14 +414,9 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/commentaire/2",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "commentaire",
-                "2"
-              ]
+              "path": ["commentaire", "2"]
             }
           },
           "response": []
@@ -524,13 +433,9 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/fiche_animal",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "fiche_animal"
-              ]
+              "path": ["fiche_animal"]
             }
           },
           "response": []
@@ -541,15 +446,24 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "localhost:5000/fiche_animal/7",
-              "host": [
-                "localhost"
-              ],
+              "raw": "localhost:5000/fiche_animal/10",
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "fiche_animal",
-                "7"
-              ]
+              "path": ["fiche_animal", "10"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Fiche Animal By Espece",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:5000/fiche_animal/espece/3",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["fiche_animal", "espece", "3"]
             }
           },
           "response": []
@@ -561,7 +475,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"name\" : \"JujuFitCaca\",\r\n    \"description\" : \"balbabla\",\r\n    \"idName\" : \"mrraphi04\",\r\n    \"idEspece\" : 3,\r\n    \"imageUrl\" : \"https://media.licdn.com/dms/image/v2/D4E03AQEW-WqPYIMsrw/profile-displayphoto-shrink_400_400/B4EZUk8udkG0Ag-/0/1740081654118?e=1784160000&v=beta&t=afsTDQzdPg4-XRjl1iuqBu4EpGx5fQzNQi_W4xYwS38\"\r\n}",
+              "raw": "{\r\n    \"name\" : \"JujuFitCacacaca\",\r\n    \"description\" : \"balbabla\",\r\n    \"idName\" : \"mrraphi04\",\r\n    \"idEspece\" : 3,\r\n    \"imageUrl\" : \"https://media.licdn.com/dms/image/v2/D4E03AQEW-WqPYIMsrw/profile-displayphoto-shrink_400_400/B4EZUk8udkG0Ag-/0/1740081654118?e=1784160000&v=beta&t=afsTDQzdPg4-XRjl1iuqBu4EpGx5fQzNQi_W4xYwS38\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -570,13 +484,9 @@
             },
             "url": {
               "raw": "localhost:5000/fiche_animal",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "fiche_animal"
-              ]
+              "path": ["fiche_animal"]
             }
           },
           "response": []
@@ -597,14 +507,9 @@
             },
             "url": {
               "raw": "localhost:5000/fiche_animal/7",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "fiche_animal",
-                "7"
-              ]
+              "path": ["fiche_animal", "7"]
             }
           },
           "response": []
@@ -616,14 +521,9 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/fiche_animal/7",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "fiche_animal",
-                "7"
-              ]
+              "path": ["fiche_animal", "7"]
             }
           },
           "response": []
@@ -640,13 +540,9 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/espece",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "espece"
-              ]
+              "path": ["espece"]
             }
           },
           "response": []
@@ -670,13 +566,9 @@
             },
             "url": {
               "raw": "localhost:5000/espece",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "espece"
-              ]
+              "path": ["espece"]
             }
           },
           "response": []
@@ -700,14 +592,9 @@
             },
             "url": {
               "raw": "localhost:5000/espece/3",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "espece",
-                "3"
-              ]
+              "path": ["espece", "3"]
             }
           },
           "response": []
@@ -731,14 +618,9 @@
             },
             "url": {
               "raw": "localhost:5000/espece/4",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "espece",
-                "4"
-              ]
+              "path": ["espece", "4"]
             }
           },
           "response": []
@@ -750,14 +632,9 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/espece/3",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "espece",
-                "3"
-              ]
+              "path": ["espece", "3"]
             }
           },
           "response": []
@@ -774,13 +651,9 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/activite",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "activite"
-              ]
+              "path": ["activite"]
             }
           },
           "response": []
@@ -792,14 +665,37 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/activite/2",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "activite",
-                "2"
-              ]
+              "path": ["activite", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Especes By Activite Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:5000/activite/espece/1",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["activite", "espece", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Animals By Activite Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:5000/activite/espece/1",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["activite", "espece", "1"]
             }
           },
           "response": []
@@ -820,13 +716,9 @@
             },
             "url": {
               "raw": "localhost:5000/activite",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "activite"
-              ]
+              "path": ["activite"]
             }
           },
           "response": []
@@ -847,14 +739,9 @@
             },
             "url": {
               "raw": "localhost:5000/activite/2",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "activite",
-                "2"
-              ]
+              "path": ["activite", "2"]
             }
           },
           "response": []
@@ -875,14 +762,9 @@
             },
             "url": {
               "raw": "localhost:5000/activite/2",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "activite",
-                "2"
-              ]
+              "path": ["activite", "2"]
             }
           },
           "response": []
@@ -893,31 +775,29 @@
       "name": "Inclue",
       "item": [
         {
-          "name": "GET Inclue",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
+          "name": "GET Inclue All",
           "request": {
             "method": "GET",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"idInclue\" : 1\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
             "url": {
               "raw": "localhost:5000/inclue",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "inclue"
-              ]
+              "path": ["inclue"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Inclue By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:5000/inclue/3",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["inclue", "3"]
             }
           },
           "response": []
@@ -938,25 +818,21 @@
             },
             "url": {
               "raw": "localhost:5000/inclue",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "inclue"
-              ]
+              "path": ["inclue"]
             }
           },
           "response": []
         },
         {
-          "name": "PUT Inclue",
+          "name": "PUT Inclue By Id",
           "request": {
             "method": "PUT",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idInclue\" : 1,\r\n    \"idEspece\" : 3,\r\n    \"idActivite\" : 1\r\n}",
+              "raw": "{\r\n    \"idEspece\" : 3,\r\n    \"idActivite\" : 1\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -964,41 +840,24 @@
               }
             },
             "url": {
-              "raw": "localhost:5000/inclue",
-              "host": [
-                "localhost"
-              ],
+              "raw": "localhost:5000/inclue/2",
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "inclue"
-              ]
+              "path": ["inclue", "2"]
             }
           },
           "response": []
         },
         {
-          "name": "DELETE Inclue",
+          "name": "DELETE Inclue By Id",
           "request": {
             "method": "DELETE",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"idInclue\" : 1\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
             "url": {
-              "raw": "localhost:5000/inclue",
-              "host": [
-                "localhost"
-              ],
+              "raw": "localhost:5000/inclue/2",
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "inclue"
-              ]
+              "path": ["inclue", "2"]
             }
           },
           "response": []
@@ -1009,31 +868,15 @@
       "name": "Participe",
       "item": [
         {
-          "name": "GET Participe",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
+          "name": "GET Participe All",
           "request": {
             "method": "GET",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"idParticipe\" : 2\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
             "url": {
               "raw": "localhost:5000/participe",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "participe"
-              ]
+              "path": ["participe"]
             }
           },
           "response": []
@@ -1045,7 +888,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idName\" : \"mrraphi04\",\r\n    \"idAnimal\" : 4,\r\n    \"idActivite\" : 1,\r\n    \"date\" : \"2026-07-23\"\r\n}",
+              "raw": "{\r\n    \"idName\" : \"mrraphi04\",\r\n    \"idAnimal\" : 9,\r\n    \"idActivite\" : 1,\r\n    \"date\" : \"2026-07-23\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1054,19 +897,15 @@
             },
             "url": {
               "raw": "localhost:5000/participe",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "participe"
-              ]
+              "path": ["participe"]
             }
           },
           "response": []
         },
         {
-          "name": "PUT Participe",
+          "name": "PUT Participe By Id",
           "request": {
             "method": "PUT",
             "header": [],
@@ -1080,20 +919,16 @@
               }
             },
             "url": {
-              "raw": "localhost:5000/participe",
-              "host": [
-                "localhost"
-              ],
+              "raw": "localhost:5000/participe/5",
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "participe"
-              ]
+              "path": ["participe", "5"]
             }
           },
           "response": []
         },
         {
-          "name": "DELETE Participe",
+          "name": "DELETE Participe By Id",
           "request": {
             "method": "DELETE",
             "header": [],
@@ -1107,14 +942,24 @@
               }
             },
             "url": {
-              "raw": "localhost:5000/participe",
-              "host": [
-                "localhost"
-              ],
+              "raw": "localhost:5000/participe/5",
+              "host": ["localhost"],
               "port": "5000",
-              "path": [
-                "participe"
-              ]
+              "path": ["participe", "5"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Participe By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:5000/participe/5",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["participe", "5"]
             }
           },
           "response": []
