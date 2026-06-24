@@ -37,7 +37,7 @@ def createCommentaire(idName, idAnimal, commentaire) :
         return response
 
     # On vérifie que l'idName existe
-    checkUser = utilisateurModel.get(idName)
+    checkUser = utilisateurModel.getUtilisateurById(idName)
 
     if(checkUser["code"] == 404) :
         # L'utilisateur n'existe pas
@@ -48,7 +48,7 @@ def createCommentaire(idName, idAnimal, commentaire) :
         return response
 
     # On vérifie que l'idAnimal existe
-    checkFiche_animal = fiche_animalModel.get(idAnimal)
+    checkFiche_animal = fiche_animalModel.getById(idAnimal)
 
     if(checkFiche_animal["code"] == 404) :
         # La fiche animal n'existe pas
@@ -69,20 +69,55 @@ def createCommentaire(idName, idAnimal, commentaire) :
     
     return response
 
-def getCommentaire(idCommentaire) :
-    # On vérifie qu'on a bien un identifiant d'utilisateur
+def getAllCommentaires() :
+
+    # On récupère tous les utilisateurs
+    response = commentaireModel.getAll()
+
+    # On renvoie les informations de l'utilisateur
+    return response
+
+def getCommentaireById(idCommentaire) :
+    # On vérifie qu'on a bien un identifiant de commentaire
     if(not idCommentaire) :
         response = {
-            "message" : "Il manque l'identifiant de l'utilisateur",
+            "message" : "Il manque l'identifiant de commentaire",
             "code" : 422
         }
         return response
 
-    # On récupère la fiche animal
-    response = commentaireModel.get(idCommentaire)
+    # On récupère le commentaire
+    response = commentaireModel.getById(idCommentaire)
 
     # On renvoie les informations de la fiche animal
     return response
+
+def getCommentaireByAnimal(idAnimal) :
+    # On vérifie qu'on a bien un identifiant de commentaire
+    if(not idAnimal) :
+        response = {
+            "message" : "Il manque l'identifiant de l'animal",
+            "code" : 422
+        }
+        return response
+
+    # On vérifie que l'idAnimal existe
+    checkFiche_animal = fiche_animalModel.getById(idAnimal)
+
+    if(checkFiche_animal["code"] == 404) :
+        # La fiche animal n'existe pas
+        response = {
+            "message" : "La fiche n'existe pas",
+            "code" : 422
+        }
+        return response
+
+    # On récupère le commentaire
+    response = commentaireModel.getByAnimal(idAnimal)
+
+    # On renvoie les informations de la fiche animal
+    return response
+
 
 def updateCommentaire(idCommentaire, commentaire) :
     # On vérifie que c'est bien formaté
@@ -110,7 +145,7 @@ def updateCommentaire(idCommentaire, commentaire) :
         return response
 
     # On vérifie que l'idCommentaire existe
-    checkCommentaire = commentaireModel.get(idCommentaire)
+    checkCommentaire = commentaireModel.getById(idCommentaire)
 
     if(checkCommentaire["code"] == 404) :
         # Le commentaire n'existe pas

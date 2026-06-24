@@ -22,13 +22,71 @@ def create(idName, idAnimal, commentaire) :
     myCursor.close()
     myDb.close()
 
-def get(idCommentaire) :
+def getAll() :
     # Connexion à la BDD
     myDb = connectToDB()
     myCursor = myDb.cursor()
 
-    # On récupère les informations de l'animal
-    sql = f'''SELECT * FROM commentaires WHERE idCommentaire = {idCommentaire}'''
+    # On récupère les informations d'un utilisateur
+    sql = f'''
+        SELECT commentaires.idCommentaire, commentaires.commentaire, utilisateurs.idName, utilisateurs.username, fiches_animal.idAnimal, fiches_animal.name
+        FROM commentaires
+        INNER JOIN utilisateurs ON commentaires.idName = utilisateurs.idName
+        INNER JOIN fiches_animal ON commentaires.idAnimal = fiches_animal.idAnimal
+        '''
+    myCursor.execute(sql)
+    datas = myCursor.fetchall()
+    if(datas):
+        response = {
+            "commentaires" : [],
+            "code" : 200
+        }
+
+        for data in datas :        
+            response["commentaires"].append(
+                {
+                    "commentaire": {
+                        "idCommentaire" : data[0],
+                        "commentaire" : data[1],
+                    },
+
+                    "utilisateur": {
+                        "idName" : data[2],
+                        "username" : data[3],
+                    },
+
+                    "fiche_animal" : {
+                        "idAnimal" : data[4],
+                        "name" : data[5]
+                    },
+                }
+            )
+    
+    else :
+        response = {
+            "message" : "Commentaires non trouvés",
+            "code" : 404
+        }
+    
+    # Fermeture de la connexion
+    myCursor.close()
+    myDb.close()
+
+    return response
+
+def getById(idCommentaire) :
+    # Connexion à la BDD
+    myDb = connectToDB()
+    myCursor = myDb.cursor()
+
+    # On récupère les informations du commmentaire
+    sql = f'''
+        SELECT commentaires.idCommentaire, commentaires.commentaire, utilisateurs.idName, utilisateurs.username, fiches_animal.idAnimal, fiches_animal.name
+        FROM commentaires
+        INNER JOIN utilisateurs ON commentaires.idName = utilisateurs.idName
+        INNER JOIN fiches_animal ON commentaires.idAnimal = fiches_animal.idAnimal
+        WHERE idCommentaire = {idCommentaire}
+        '''
     myCursor.execute(sql)
     data = myCursor.fetchall()
 
@@ -36,9 +94,17 @@ def get(idCommentaire) :
         response = {
             "commentaire": {
                 "idCommentaire" : data[0][0],
-                "idName" : data[0][1],
-                "idAnimal" : data[0][2],
-                "commentaire" : data[0][3],
+                "commentaire" : data[0][1],
+            },
+
+            "utilisateur": {
+                "idName" : data[0][2],
+                "username" : data[0][3],
+            },
+
+            "fiche_animal" : {
+                "idAnimal" : data[0][4],
+                "name" : data[0][5]
             },
             "code" : 200
         }
@@ -49,6 +115,59 @@ def get(idCommentaire) :
             "code" : 404
         }
 
+    # Fermeture de la connexion
+    myCursor.close()
+    myDb.close()
+
+    return response
+
+def getByAnimal(idAnimal) :
+    # Connexion à la BDD
+    myDb = connectToDB()
+    myCursor = myDb.cursor()
+
+    # On récupère les informations d'un utilisateur
+    sql = f'''
+        SELECT commentaires.idCommentaire, commentaires.commentaire, utilisateurs.idName, utilisateurs.username, fiches_animal.idAnimal, fiches_animal.name
+        FROM commentaires
+        INNER JOIN utilisateurs ON commentaires.idName = utilisateurs.idName
+        INNER JOIN fiches_animal ON commentaires.idAnimal = fiches_animal.idAnimal
+        WHERE fiches_animal.idAnimal = {idAnimal}
+        '''
+    myCursor.execute(sql)
+    datas = myCursor.fetchall()
+    if(datas):
+        response = {
+            "commentaires" : [],
+            "code" : 200
+        }
+
+        for data in datas :        
+            response["commentaires"].append(
+                {
+                    "commentaire": {
+                        "idCommentaire" : data[0],
+                        "commentaire" : data[1],
+                    },
+
+                    "utilisateur": {
+                        "idName" : data[2],
+                        "username" : data[3],
+                    },
+
+                    "fiche_animal" : {
+                        "idAnimal" : data[4],
+                        "name" : data[5]
+                    },
+                }
+            )
+    
+    else :
+        response = {
+            "message" : "Commentaires non trouvés",
+            "code" : 404
+        }
+    
     # Fermeture de la connexion
     myCursor.close()
     myDb.close()

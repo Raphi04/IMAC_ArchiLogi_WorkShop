@@ -42,22 +42,24 @@ def getAll() :
 
     if(datas):
         response = {
-            "notes" : [],
+            "fiches_animal" : [],
             "code" : 200
         }
 
         for data in datas :        
-            response["notes"].append(
+            response["fiches_animal"].append(
                 {
                     "animal" : {
                         "name" : data[0],
                         "description" : data[1],
                         "imageUrl" : data[6]
                     },
+                    
                     "user" : {
                         "idName" : data[2],
                         "username" : data[3]
                     },
+                    
                     "espece" : {
                         "idEspece" : data[4],
                         "name" : data[5]
