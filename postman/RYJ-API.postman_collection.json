@@ -1,10 +1,10 @@
 {
   "info": {
-    "_postman_id": "a5ae42c3-2bfd-47c8-8c00-6fc751fc926d",
+    "_postman_id": "c0b9c658-5bca-47cc-9833-ce1bc29763c5",
     "name": "RYJ-API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "33314477",
-    "_collection_link": "https://go.postman.co/collection/33314477-a5ae42c3-2bfd-47c8-8c00-6fc751fc926d?source=collection_link"
+    "_exporter_id": "56106402",
+    "_collection_link": "https://go.postman.co/collection/56106402-c0b9c658-5bca-47cc-9833-ce1bc29763c5?source=collection_link"
   },
   "item": [
     {
@@ -32,9 +32,13 @@
             },
             "url": {
               "raw": "localhost:5000/utilisateur",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["utilisateur"]
+              "path": [
+                "utilisateur"
+              ]
             }
           },
           "response": []
@@ -61,9 +65,14 @@
             },
             "url": {
               "raw": "localhost:5000/utilisateur/connect",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["utilisateur", "connect"]
+              "path": [
+                "utilisateur",
+                "connect"
+              ]
             }
           },
           "response": []
@@ -87,9 +96,13 @@
             },
             "url": {
               "raw": "localhost:5000/utilisateur",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["utilisateur"]
+              "path": [
+                "utilisateur"
+              ]
             }
           },
           "response": []
@@ -113,9 +126,13 @@
             },
             "url": {
               "raw": "localhost:5000/utilisateur",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["utilisateur"]
+              "path": [
+                "utilisateur"
+              ]
             }
           },
           "response": []
@@ -139,9 +156,13 @@
             },
             "url": {
               "raw": "localhost:5000/utilisateur",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["utilisateur"]
+              "path": [
+                "utilisateur"
+              ]
             }
           },
           "response": []
@@ -170,9 +191,13 @@
             },
             "url": {
               "raw": "localhost:5000/note",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["note"]
+              "path": [
+                "note"
+              ]
             }
           },
           "response": []
@@ -183,10 +208,15 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "localhost:5000/note/3",
-              "host": ["localhost"],
+              "raw": "localhost:5000/note/4",
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["note", "3"]
+              "path": [
+                "note",
+                "4"
+              ]
             }
           },
           "response": []
@@ -210,9 +240,35 @@
             },
             "url": {
               "raw": "localhost:5000/note/utilisateur/mrraphi04",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["note", "utilisateur", "mrraphi04"]
+              "path": [
+                "note",
+                "utilisateur",
+                "mrraphi04"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Note Animal",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:5000/note/animal/9",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "note",
+                "animal",
+                "9"
+              ]
             }
           },
           "response": []
@@ -224,7 +280,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n\r\n    \"idName\" : \"mrraphi04\",\r\n    \"idAnimal\" : 4,\r\n    \"note\" : 1\r\n}",
+              "raw": "{\r\n\r\n    \"idName\" : \"testa\",\r\n    \"idAnimal\" : 9,\r\n    \"note\" : 5\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -233,21 +289,25 @@
             },
             "url": {
               "raw": "localhost:5000/note",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["note"]
+              "path": [
+                "note"
+              ]
             }
           },
           "response": []
         },
         {
-          "name": "PUT Note",
+          "name": "PUT Note By Id",
           "request": {
             "method": "PUT",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idNote\" : 3,\r\n    \"idName\" : \"mrraphi04\",\r\n    \"idAnimal\" : 4 ,\r\n    \"note\" : 2\r\n}",
+              "raw": "{\r\n    \"idName\" : \"mrraphi04\",\r\n    \"idAnimal\" : 9 ,\r\n    \"note\" : 5\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -255,10 +315,15 @@
               }
             },
             "url": {
-              "raw": "localhost:5000/note",
-              "host": ["localhost"],
+              "raw": "localhost:5000/note/4",
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["note"]
+              "path": [
+                "note",
+                "4"
+              ]
             }
           },
           "response": []
@@ -270,7 +335,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"note\" : 5\r\n}",
+              "raw": "{\r\n    \"note\" : 2\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -278,33 +343,35 @@
               }
             },
             "url": {
-              "raw": "localhost:5000/note/mrraphi04/3",
-              "host": ["localhost"],
+              "raw": "localhost:5000/note/mrraphi04/4",
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["note", "mrraphi04", "3"]
+              "path": [
+                "note",
+                "mrraphi04",
+                "4"
+              ]
             }
           },
           "response": []
         },
         {
-          "name": "DELETE Note",
+          "name": "DELETE Note By Id",
           "request": {
             "method": "DELETE",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"idNote\" : 3\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
             "url": {
-              "raw": "localhost:5000/note",
-              "host": ["localhost"],
+              "raw": "localhost:5000/note/5",
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["note"]
+              "path": [
+                "note",
+                "5"
+              ]
             }
           },
           "response": []
@@ -333,9 +400,13 @@
             },
             "url": {
               "raw": "localhost:5000/commentaire",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["commentaire"]
+              "path": [
+                "commentaire"
+              ]
             }
           },
           "response": []
@@ -356,9 +427,13 @@
             },
             "url": {
               "raw": "localhost:5000/commentaire",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["commentaire"]
+              "path": [
+                "commentaire"
+              ]
             }
           },
           "response": []
@@ -379,9 +454,13 @@
             },
             "url": {
               "raw": "localhost:5000/commentaire",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["commentaire"]
+              "path": [
+                "commentaire"
+              ]
             }
           },
           "response": []
@@ -402,9 +481,13 @@
             },
             "url": {
               "raw": "localhost:5000/commentaire",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["commentaire"]
+              "path": [
+                "commentaire"
+              ]
             }
           },
           "response": []
@@ -421,9 +504,13 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/fiche_animal",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["fiche_animal"]
+              "path": [
+                "fiche_animal"
+              ]
             }
           },
           "response": []
@@ -434,10 +521,15 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "localhost:5000/fiche_animal/7",
-              "host": ["localhost"],
+              "raw": "localhost:5000/fiche_animal/9",
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["fiche_animal", "7"]
+              "path": [
+                "fiche_animal",
+                "9"
+              ]
             }
           },
           "response": []
@@ -458,9 +550,13 @@
             },
             "url": {
               "raw": "localhost:5000/fiche_animal",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["fiche_animal"]
+              "path": [
+                "fiche_animal"
+              ]
             }
           },
           "response": []
@@ -481,9 +577,14 @@
             },
             "url": {
               "raw": "localhost:5000/fiche_animal/7",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["fiche_animal", "7"]
+              "path": [
+                "fiche_animal",
+                "7"
+              ]
             }
           },
           "response": []
@@ -495,9 +596,14 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/fiche_animal/7",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["fiche_animal", "7"]
+              "path": [
+                "fiche_animal",
+                "7"
+              ]
             }
           },
           "response": []
@@ -514,9 +620,13 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/espece",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["espece"]
+              "path": [
+                "espece"
+              ]
             }
           },
           "response": []
@@ -540,9 +650,13 @@
             },
             "url": {
               "raw": "localhost:5000/espece",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["espece"]
+              "path": [
+                "espece"
+              ]
             }
           },
           "response": []
@@ -566,9 +680,14 @@
             },
             "url": {
               "raw": "localhost:5000/espece/3",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["espece", "3"]
+              "path": [
+                "espece",
+                "3"
+              ]
             }
           },
           "response": []
@@ -592,9 +711,14 @@
             },
             "url": {
               "raw": "localhost:5000/espece/4",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["espece", "4"]
+              "path": [
+                "espece",
+                "4"
+              ]
             }
           },
           "response": []
@@ -606,9 +730,14 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/espece/3",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["espece", "3"]
+              "path": [
+                "espece",
+                "3"
+              ]
             }
           },
           "response": []
@@ -625,9 +754,13 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/activite",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["activite"]
+              "path": [
+                "activite"
+              ]
             }
           },
           "response": []
@@ -639,9 +772,14 @@
             "header": [],
             "url": {
               "raw": "localhost:5000/activite/2",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["activite", "2"]
+              "path": [
+                "activite",
+                "2"
+              ]
             }
           },
           "response": []
@@ -662,9 +800,13 @@
             },
             "url": {
               "raw": "localhost:5000/activite",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["activite"]
+              "path": [
+                "activite"
+              ]
             }
           },
           "response": []
@@ -685,9 +827,14 @@
             },
             "url": {
               "raw": "localhost:5000/activite/2",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["activite", "2"]
+              "path": [
+                "activite",
+                "2"
+              ]
             }
           },
           "response": []
@@ -708,9 +855,14 @@
             },
             "url": {
               "raw": "localhost:5000/activite/2",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["activite", "2"]
+              "path": [
+                "activite",
+                "2"
+              ]
             }
           },
           "response": []
@@ -739,9 +891,13 @@
             },
             "url": {
               "raw": "localhost:5000/inclue",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["inclue"]
+              "path": [
+                "inclue"
+              ]
             }
           },
           "response": []
@@ -762,9 +918,13 @@
             },
             "url": {
               "raw": "localhost:5000/inclue",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["inclue"]
+              "path": [
+                "inclue"
+              ]
             }
           },
           "response": []
@@ -785,9 +945,13 @@
             },
             "url": {
               "raw": "localhost:5000/inclue",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["inclue"]
+              "path": [
+                "inclue"
+              ]
             }
           },
           "response": []
@@ -808,9 +972,13 @@
             },
             "url": {
               "raw": "localhost:5000/inclue",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["inclue"]
+              "path": [
+                "inclue"
+              ]
             }
           },
           "response": []
@@ -839,9 +1007,13 @@
             },
             "url": {
               "raw": "localhost:5000/participe",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["participe"]
+              "path": [
+                "participe"
+              ]
             }
           },
           "response": []
@@ -862,9 +1034,13 @@
             },
             "url": {
               "raw": "localhost:5000/participe",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["participe"]
+              "path": [
+                "participe"
+              ]
             }
           },
           "response": []
@@ -885,9 +1061,13 @@
             },
             "url": {
               "raw": "localhost:5000/participe",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["participe"]
+              "path": [
+                "participe"
+              ]
             }
           },
           "response": []
@@ -908,9 +1088,13 @@
             },
             "url": {
               "raw": "localhost:5000/participe",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
-              "path": ["participe"]
+              "path": [
+                "participe"
+              ]
             }
           },
           "response": []
