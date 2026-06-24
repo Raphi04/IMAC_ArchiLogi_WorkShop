@@ -187,7 +187,7 @@ def participe():
         response = participeService.deleteParticipe(json["idParticipe"])
         return response
     
-@app.route("/note", methods=["POST", "GET", "PUT", "DELETE"])
+@app.route("/note", methods=["POST", "GET"])
 def note():
     if(request.method == "POST") :
         json = request.get_json()
@@ -197,21 +197,25 @@ def note():
     if(request.method == "GET") :
         response = noteService.getNoteAll()
         return response
-    
+
+@app.route("/note/<idNote>", methods=["GET", "PUT", "DELETE"])
+def noteById(idNote):
+    if(request.method == "GET") :
+        response = noteService.getNoteById(idNote)
+        return response
     if(request.method == "PUT") :
         json = request.get_json()
-        response = noteService.updateNote(json["idNote"],json["idName"],json["idAnimal"],json["note"])
+        response = noteService.updateNote(idNote,json["idName"],json["idAnimal"],json["note"])
         return response
 
     if(request.method == "DELETE") :
-        json = request.get_json()
-        response = noteService.deleteNote(json["idNote"])
+        response = noteService.deleteNote(idNote)
         return response
 
-@app.route("/note/<idNote>", methods=["GET"])
-def noteById(idNote):
-        response = noteService.getNoteById(idNote)
-        return response
+@app.route("/note/animal/<idAnimal>", methods=["GET"])
+def noteByAnimal(idAnimal):
+    response = noteService.getAvgNoteAnimal(idAnimal)
+    return response
 
 @app.route("/note/<idName>/<idNote>", methods=["PUT"])
 def noteByUser(idName, idNote):

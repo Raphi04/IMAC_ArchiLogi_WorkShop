@@ -36,7 +36,7 @@ def createNote(idName, idAnimal,note) :
         return response
 
     # On vérifie que l'idName existe
-    checkName = utilisateurModel.get(idName)
+    checkName = utilisateurModel.getUtilisateurById(idName)
 
     if(checkName["code"] == 404) :
         # L'utilisateur n'existe pas
@@ -47,7 +47,7 @@ def createNote(idName, idAnimal,note) :
         return response
     
     # On vérifie que l'idAnimal existe
-    checkAnimal = fiche_animalModel.get(idAnimal)
+    checkAnimal = fiche_animalModel.getById(idAnimal)
 
     if(checkAnimal["code"] == 404) :
         # L'utilisateur n'existe pas
@@ -108,6 +108,21 @@ def getNoteUtilisateurById(idName):
     # On renvoie les informations de l'activité
     return response
 
+def getAvgNoteAnimal(idAnimal):
+    # On vérifie que c'est correctement formater
+    if(not idAnimal) :
+        response = {
+            "message" : "Il manque l'identifiant de l'animal",
+            "code" : 422
+        }
+        return response
+
+    # On récupère une note
+    response = noteModel.getAvgNoteAnimal(idAnimal)
+
+    # On renvoie les informations de l'activité
+    return response
+
 def updateNote(idNote, idName, idAnimal,note) :
     # On vérifie que c'est bien formaté
 
@@ -147,7 +162,7 @@ def updateNote(idNote, idName, idAnimal,note) :
         return response
     
     # On vérifie que l'idName existe
-    checkName = utilisateurModel.get(idName)
+    checkName = utilisateurModel.getUtilisateurById(idName)
 
     if(checkName["code"] == 404) :
         # L'utilisateur n'existe pas
@@ -158,7 +173,7 @@ def updateNote(idNote, idName, idAnimal,note) :
         return response
     
     # On vérifie que l'idAnimal existe
-    checkAnimal = fiche_animalModel.get(idAnimal)
+    checkAnimal = fiche_animalModel.getById(idAnimal)
 
     if(checkAnimal["code"] == 404) :
         # L'utilisateur n'existe pas
@@ -208,7 +223,7 @@ def updateNoteByUser(idName, idNote, note) :
         return response
     
     # On vérifie que l'idName existe
-    checkName = utilisateurModel.get(idName)
+    checkName = utilisateurModel.getUtilisateurById(idName)
 
     if(checkName["code"] == 404) :
         # L'utilisateur n'existe pas
@@ -238,6 +253,7 @@ def updateNoteByUser(idName, idNote, note) :
 
     # On renvoie une réponse
     return response
+
 
 def deleteNote(idNote) :
     # On vérifie qu'on a bien un identifiant

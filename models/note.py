@@ -164,6 +164,42 @@ def getAllFromUtilisateur(idName) :
 
     return response
 
+def getAvgNoteAnimal(idAnimal):
+    # Connexion à la BDD
+    myDb = connectToDB()
+    myCursor = myDb.cursor()
+
+    # On récupère les informations de la note
+    sql = f'''SELECT fiches_animal.idAnimal, fiches_animal.name, AVG(note)
+    FROM notes 
+    JOIN fiches_animal ON fiches_animal.idAnimal = notes.idAnimal
+    WHERE {idAnimal} = {idAnimal}'''
+    myCursor.execute(sql)
+    data = myCursor.fetchall()
+
+    if(data):
+        moyenne_clamp = round(data[0][2],2)
+        response = {
+            "note": {
+                "idAnimal" : data[0][0],
+                "name" : data[0][1],
+                "Moyenne note" : moyenne_clamp,
+            },
+            "code" : 200
+        }
+    
+    else :
+        response = {
+            "message" : "Note non trouvée",
+            "code" : 404
+        }
+
+    # Fermeture de la connexion
+    myCursor.close()
+    myDb.close()
+
+    return response
+
 def update(idNote, idName, idAnimal,note) :
     # Connexion à la BDD
     myDb = connectToDB()
