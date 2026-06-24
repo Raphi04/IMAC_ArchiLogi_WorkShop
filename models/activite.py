@@ -20,7 +20,43 @@ def create(name) :
     myCursor.close()
     myDb.close()
 
-def get(idActivite) :
+def getAllActivite() :
+    # Connexion à la BDD
+    myDb = connectToDB()
+    myCursor = myDb.cursor()
+
+    # On récupère les informations de l'activité
+    sql = f'''SELECT * FROM activites'''
+    myCursor.execute(sql)
+    datas = myCursor.fetchall()
+
+    if(datas):
+        response = {
+            "activites" : [],
+            "code" : 200
+        }
+
+        for data in datas :        
+            response["activites"].append(
+                {
+                    "idActivite" : data[0],
+                    "name" : data[1],
+                }
+            )
+    
+    else :
+        response = {
+            "message" : "Activités non trouvées",
+            "code" : 404
+        }
+
+    # Fermeture de la connexion
+    myCursor.close()
+    myDb.close()
+
+    return response
+
+def getActiviteById(idActivite) :
     # Connexion à la BDD
     myDb = connectToDB()
     myCursor = myDb.cursor()

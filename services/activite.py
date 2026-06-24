@@ -32,7 +32,14 @@ def createActivite(name) :
 
     return response
 
-def getActivite(idActivite) :
+def getAllActivite() :
+    # On récupère les activités
+    response = activiteModel.getAllActivite()
+
+    # On renvoie les informations des activités
+    return response
+
+def getActiviteById(idActivite) :
     # On vérifie qu'on a bien une activité
     if(not idActivite) :
         response = {
@@ -42,7 +49,7 @@ def getActivite(idActivite) :
         return response
 
     # On récupère une activité
-    response = activiteModel.get(idActivite)
+    response = activiteModel.getActiviteById(idActivite)
 
     # On renvoie les informations de l'activité
     return response
@@ -74,7 +81,7 @@ def updateActivite(idActivite, name) :
     
 
     # On regarde si l'activité existe
-    checkActivite = activiteModel.get(idActivite)
+    checkActivite = activiteModel.getActiviteById(idActivite)
 
     if(checkActivite["code"] == 404) :
         # L'activité n'existe pas
@@ -104,7 +111,7 @@ def deleteActivite(idActivite) :
         return response
 
     # On vérifie que l'activité existe
-    check = activiteModel.get(idActivite)
+    check = activiteModel.getActiviteById(idActivite)
 
     if(check["code"] == 404) :
         response = {

@@ -121,24 +121,30 @@ def commentaire():
         response = commentaireService.deleteCommentaire(json["idCommentaire"])
         return response
     
-@app.route("/activite", methods=["POST", "GET", "PUT", "DELETE"])
+@app.route("/activite", methods=["POST", "GET"])
 def activite():
-    json = request.get_json()
-
     if(request.method == "POST") :
+        json = request.get_json()
         response = activiteService.createActivite(json["name"])
         return response
 
     if(request.method == "GET") :
-        response = activiteService.getActivite(json["idActivite"])
+        response = activiteService.getAllActivite()
         return response
-    
+
+@app.route("/activite/<idActivite>", methods=["GET", "PUT", "DELETE"])
+def activiteById(idActivite):
+    if(request.method == "GET") :
+        response = activiteService.getActiviteById(idActivite)
+        return response
+
     if(request.method == "PUT") :
-        response = activiteService.updateActivite(json["idActivite"], json["name"])
+        json = request.get_json()
+        response = activiteService.updateActivite(idActivite, json["name"])
         return response
 
     if(request.method == "DELETE") :
-        response = activiteService.deleteActivite(json["idActivite"])
+        response = activiteService.deleteActivite(idActivite)
         return response
 
 @app.route("/inclue", methods=["POST", "GET", "PUT", "DELETE"])

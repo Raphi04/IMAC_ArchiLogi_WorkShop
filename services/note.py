@@ -83,7 +83,7 @@ def getNoteAll() :
     # On récupère une note
     response = noteModel.getAll()
 
-    # On renvoie les informations de l'activité
+    # On renvoie les informations des notes
     return response
 
 def getNoteById(idNote) :
