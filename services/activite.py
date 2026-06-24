@@ -1,6 +1,7 @@
 from flask import jsonify
 
 import models.activite as activiteModel
+import models.fiche_animal as fiche_animalModel
 
 def createActivite(name) :
     name = name.strip()
@@ -35,6 +36,70 @@ def createActivite(name) :
 def getAllActivite() :
     # On récupère les activités
     response = activiteModel.getAllActivite()
+
+    # On renvoie les informations des activités
+    return response
+
+def activiteGetEspece(idActivite) :
+    # On vérifie qu'on a bien une activité
+    if(not idActivite) :
+        response = {
+            "message" : "Il manque l'activité",
+            "code" : 422
+        }
+        return response
+
+    # On regarde si l'activité existe
+    checkActivite = activiteModel.getActiviteById(idActivite)
+
+    if(checkActivite["code"] == 404) :
+        # L'activité n'existe pas
+        response = {
+            "message" : "L'activité n'existe pas",
+            "code" : 422
+        }
+        return response
+
+    # On récupère les activités
+    response = activiteModel.getEspecesByActiviteId(idActivite)
+
+    # On renvoie les informations des activités
+    return response
+
+def activiteGetAnimals(idActivite) :
+    # On vérifie qu'on a bien une activité
+    if(not idActivite) :
+        response = {
+            "message" : "Il manque l'activité",
+            "code" : 422
+        }
+        return response
+
+    # On regarde si l'activité existe
+    checkActivite = activiteModel.getActiviteById(idActivite)
+
+    if(checkActivite["code"] == 404) :
+        # L'activité n'existe pas
+        response = {
+            "message" : "L'activité n'existe pas",
+            "code" : 422
+        }
+        return response
+
+    response = {
+        "fiches_animal" : [],
+        "code" : 200
+    }
+
+    # On récupère les idEspeces
+    checkIdEspeces = activiteModel.getEspecesByActiviteId(idActivite)["especes"]
+
+    for idEspece in checkIdEspeces :
+        animalsList = fiche_animalModel.getByEspece(idEspece["idEspece"])
+        print(animalsList)
+        if(animalsList["code"] == 200) :
+            for animal in animalsList["fiches_animal"] :
+                response["fiches_animal"].append(animal)
 
     # On renvoie les informations des activités
     return response

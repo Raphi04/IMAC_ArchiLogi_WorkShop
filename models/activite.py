@@ -20,6 +20,48 @@ def create(name) :
     myCursor.close()
     myDb.close()
 
+def getEspecesByActiviteId(idActivite) :
+    # Connexion à la BDD
+    myDb = connectToDB()
+    myCursor = myDb.cursor()
+
+    # On récupère les informations de l'activité
+    sql = f'''
+        SELECT especes.idEspece, especes.name
+        FROM especes
+        INNER JOIN inclue ON especes.idEspece = inclue.idEspece
+        INNER JOIN activites ON inclue.idActivite = activites.idActivite
+        WHERE activites.idActivite = {idActivite}
+    '''
+    myCursor.execute(sql)
+    datas = myCursor.fetchall()
+
+    if(datas):
+        response = {
+            "especes" : [],
+            "code" : 200
+        }
+
+        for data in datas :        
+            response["especes"].append(
+                {
+                    "idEspece" : data[0],
+                    "name" : data[1],
+                }
+            )
+    
+    else :
+        response = {
+            "message" : "Espèces non trouvées",
+            "code" : 404
+        }
+
+    # Fermeture de la connexion
+    myCursor.close()
+    myDb.close()
+
+    return response
+
 def getAllActivite() :
     # Connexion à la BDD
     myDb = connectToDB()

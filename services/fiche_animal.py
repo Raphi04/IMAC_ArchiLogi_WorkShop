@@ -3,6 +3,8 @@ from flask import jsonify
 import models.fiche_animal as fiche_animalModel
 import models.utilisateur as utilisateurModel
 import models.espece as especeModel
+import models.commentaire as commentaireModel
+import models.note as noteModel
 
 def createFiche_animal(name, description, idName, idEspece, imageUrl) :
     # On vérifie que c'est correctement formater
@@ -58,7 +60,7 @@ def createFiche_animal(name, description, idName, idEspece, imageUrl) :
         return response
 
     # On vérifie que l'idName existe
-    checkUser = utilisateurModel.get(idName)
+    checkUser = utilisateurModel.getUtilisateurById(idName)
 
     if(checkUser["code"] == 404) :
         # L'utilisateur n'existe pas
@@ -69,7 +71,7 @@ def createFiche_animal(name, description, idName, idEspece, imageUrl) :
         return response
 
     # On vérifie que l'idEspece existe
-    checkEspece = especeModel.get(idEspece)
+    checkEspece = especeModel.getEspeceById(idEspece)
 
     if(checkEspece["code"] == 404) :
         # L'espece n'existe pas
@@ -94,6 +96,18 @@ def getFiche_animalAll() :
     # On récupère la fiche animal
     response = fiche_animalModel.getAll()
 
+    for fiche_animal in response["fiches_animal"] :
+        # On récupère les commentaires de l'animal
+        idAnimal = fiche_animal["animal"]["idAnimal"]
+        getComms = commentaireModel.getByAnimal(idAnimal)
+        fiche_animal["commentaires"] = getComms["commentaires"]
+
+        # On récupère la note moyenne
+        idAnimal = fiche_animal["animal"]["idAnimal"]
+        getAVGNote = noteModel.getAvgNoteAnimal(idAnimal)
+        if(getAVGNote["code"] == 200) :
+            fiche_animal["moyenne-note"] = getAVGNote["note"]["moyenne-note"]
+
     # On renvoie les informations de la fiche animal
     return response
 
@@ -108,6 +122,32 @@ def getFiche_animalById(idAnimal) :
 
     # On récupère la fiche animal
     response = fiche_animalModel.getById(idAnimal)
+
+    # On renvoie les informations de la fiche animal
+    return response
+
+def getFiche_animalByEspece(idEspece) :
+    # On vérifie qu'on a bien un identifiant
+    if(not idEspece) :
+        response = {
+            "message" : "Il manque l'identifiant",
+            "code" : 422
+        }
+        return response
+        
+    # On vérifie que l'idEspece existe
+    checkEspece = especeModel.getEspeceById(idEspece)
+
+    if(checkEspece["code"] == 404) :
+        # L'espece n'existe pas
+        response = {
+            "message" : "L'espèce n'existe pas",
+            "code" : 422
+        }
+        return response
+
+    # On récupère la fiche animal
+    response = fiche_animalModel.getByEspece(idEspece)
 
     # On renvoie les informations de la fiche animal
     return response
@@ -185,7 +225,7 @@ def updateFiche_animal(idAnimal, name, description, idName, idEspece, imageUrl) 
         return response
 
     # On vérifie que l'idName existe
-    checkUser = utilisateurModel.get(idName)
+    checkUser = utilisateurModel.getUtilisateurById(idName)
 
     if(checkUser["code"] == 404) :
         # L'utilisateur n'existe pas
@@ -196,7 +236,7 @@ def updateFiche_animal(idAnimal, name, description, idName, idEspece, imageUrl) 
         return response
 
     # On vérifie que l'idEspece existe
-    checkEspece = especeModel.get(idEspece)
+    checkEspece = especeModel.getEspeceById(idEspece)
 
     if(checkEspece["code"] == 404) :
         # L'espece n'existe pas

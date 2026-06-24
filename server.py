@@ -73,6 +73,10 @@ def fiche_animalById(idAnimal):
         response = fiche_animalService.deleteFiche_animal(idAnimal)
         return response
 
+@app.route("/fiche_animal/espece/<idEspece>", methods=["GET"])
+def fiche_animalByEspece(idEspece):
+    response = fiche_animalService.getFiche_animalByEspece(idEspece)
+    return response
     
 @app.route("/espece", methods=["POST", "GET"])
 def espece():
@@ -158,6 +162,17 @@ def activiteById(idActivite):
     if(request.method == "DELETE") :
         response = activiteService.deleteActivite(idActivite)
         return response
+        
+@app.route("/activite/espece/<idActivite>", methods=["GET"])
+def activiteGetEspece(idActivite):
+    response = activiteService.activiteGetEspece(idActivite)
+    return response
+
+@app.route("/activite/animal/<idActivite>", methods=["GET"])
+def activiteGetAnimals(idActivite):
+    response = activiteService.activiteGetAnimals(idActivite)
+    return response
+
 
 @app.route("/inclue", methods=["POST", "GET", "PUT", "DELETE"])
 def inclue():

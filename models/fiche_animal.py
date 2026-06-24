@@ -31,7 +31,7 @@ def getAll() :
 
     # On récupère les informations de la note
     sql = f'''
-        SELECT fiches_animal.name, fiches_animal.description, utilisateurs.idName, utilisateurs.username, especes.idEspece, especes.name, fiches_animal.imageURL
+        SELECT fiches_animal.idAnimal, fiches_animal.name, fiches_animal.description, utilisateurs.idName, utilisateurs.username, especes.idEspece, especes.name, fiches_animal.imageURL
         FROM fiches_animal
         INNER JOIN utilisateurs ON fiches_animal.idName = utilisateurs.idName
         INNER JOIN especes ON fiches_animal.idEspece = especes.idEspece
@@ -50,19 +50,18 @@ def getAll() :
             response["fiches_animal"].append(
                 {
                     "animal" : {
-                        "name" : data[0],
-                        "description" : data[1],
-                        "imageUrl" : data[6]
+                        "idAnimal" : data[0],
+                        "name" : data[1],
+                        "description" : data[2],
+                        "imageUrl" : data[7]
                     },
-                    
                     "user" : {
-                        "idName" : data[2],
-                        "username" : data[3]
+                        "idName" : data[3],
+                        "username" : data[4]
                     },
-                    
                     "espece" : {
-                        "idEspece" : data[4],
-                        "name" : data[5]
+                        "idEspece" : data[5],
+                        "name" : data[6]
                     }
                 },
             )
@@ -86,7 +85,7 @@ def getById(idAnimal) :
 
     # On récupère les informations de l'animal
     sql = f'''
-        SELECT fiches_animal.name, fiches_animal.description, utilisateurs.idName, utilisateurs.username, especes.idEspece, especes.name, fiches_animal.imageURL
+        SELECT fiches_animal.idAnimal, fiches_animal.name, fiches_animal.description, utilisateurs.idName, utilisateurs.username, especes.idEspece, especes.name, fiches_animal.imageURL
         FROM fiches_animal
         INNER JOIN utilisateurs ON fiches_animal.idName = utilisateurs.idName
         INNER JOIN especes ON fiches_animal.idEspece = especes.idEspece
@@ -100,17 +99,18 @@ def getById(idAnimal) :
         response = {
             "fiche_animal": {
                 "animal" : {
-                    "name" : data[0][0],
-                    "description" : data[0][1],
-                    "imageUrl" : data[0][6]
+                    "idAnimal" : data[0][0],
+                    "name" : data[0][1],
+                    "description" : data[0][2],
+                    "imageUrl" : data[0][7]
                 },
                 "user" : {
-                    "idName" : data[0][2],
-                    "username" : data[0][3]
+                    "idName" : data[0][3],
+                    "username" : data[0][4]
                 },
                 "espece" : {
-                    "idEspece" : data[0][4],
-                    "name" : data[0][5]
+                    "idEspece" : data[0][5],
+                    "name" : data[0][6]
                 }
             },
             "code" : 200
@@ -119,6 +119,61 @@ def getById(idAnimal) :
     else :
         response = {
             "message" : "Fiche animal non trouvé",
+            "code" : 404
+        }
+
+    # Fermeture de la connexion
+    myCursor.close()
+    myDb.close()
+
+    return response
+
+def getByEspece(idEspece) :
+    # Connexion à la BDD
+    myDb = connectToDB()
+    myCursor = myDb.cursor()
+
+    # On récupère les informations de l'animal
+    sql = f'''
+        SELECT fiches_animal.idAnimal, fiches_animal.name, fiches_animal.description, utilisateurs.idName, utilisateurs.username, especes.idEspece, especes.name, fiches_animal.imageURL
+        FROM fiches_animal
+        INNER JOIN utilisateurs ON fiches_animal.idName = utilisateurs.idName
+        INNER JOIN especes ON fiches_animal.idEspece = especes.idEspece
+        WHERE fiches_animal.idEspece = "{idEspece}"
+        '''
+
+    myCursor.execute(sql)
+    datas = myCursor.fetchall()
+
+    if(datas):
+        response = {
+            "fiches_animal" : [],
+            "code" : 200
+        }
+
+        for data in datas :        
+            response["fiches_animal"].append(
+                {
+                    "animal" : {
+                        "idAnimal" : data[0],
+                        "name" : data[1],
+                        "description" : data[2],
+                        "imageUrl" : data[7]
+                    },
+                    "user" : {
+                        "idName" : data[3],
+                        "username" : data[4]
+                    },
+                    "espece" : {
+                        "idEspece" : data[5],
+                        "name" : data[6]
+                    }
+                },
+            )
+    
+    else :
+        response = {
+            "message" : "Fiches animaux non trouvées",
             "code" : 404
         }
 

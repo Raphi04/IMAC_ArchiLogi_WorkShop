@@ -185,7 +185,7 @@ def getAvgNoteAnimal(idAnimal):
             "note": {
                 "idAnimal" : data[0][0],
                 "name" : data[0][1],
-                "Moyenne note" : moyenne_clamp,
+                "moyenne-note" : moyenne_clamp,
             },
             "code" : 200
         }

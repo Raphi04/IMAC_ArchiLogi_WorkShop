@@ -23,7 +23,7 @@ def createInclue(idEspece, idActivite) :
         return response
     
     # On vérifie que l'idEspece existe
-    checkEspece = especeModel.get(idEspece)
+    checkEspece = especeModel.getEspeceById(idEspece)
 
     if(checkEspece["code"] == 404) :
         # L'espece n'existe pas
@@ -34,7 +34,7 @@ def createInclue(idEspece, idActivite) :
         return response
     
     # On vérifie que l'idActivite existe
-    checkActivite = activiteModel.get(idActivite)
+    checkActivite = activiteModel.getActiviteById(idActivite)
 
     if(checkActivite["code"] == 404) :
         # L'activite n'existe pas
@@ -95,7 +95,7 @@ def updateInclue(idInclue,idEspece,idActivite) :
         return response
 
     # On vérifie que l'idEspece existe
-    checkEspece = especeModel.get(idEspece)
+    checkEspece = especeModel.getEspeceById(idEspece)
 
     if(checkEspece["code"] == 404) :
         # L'espece n'existe pas
