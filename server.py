@@ -39,27 +39,34 @@ def utilisateurConnect():
     response = userService.connectUtilisateur(json["idName"], json["pwd"])
     return response
 
-@app.route("/fiche_animal", methods=["POST", "GET", "PUT", "DELETE"])
+@app.route("/fiche_animal", methods=["POST", "GET"])
 def fiche_animal():
-    json = request.get_json()
 
     if(request.method == "POST") :
-        response = fiche_animalService.createFiche_animal(json["name"], json["idName"], json["idEspece"])
+        json = request.get_json()
+        response = fiche_animalService.createFiche_animal(json["name"], json["description"], json["idName"], json["idEspece"], json["imageUrl"])
         return response
 
     if(request.method == "GET") :
-        response = fiche_animalService.getFiche_animal(json["idAnimal"])
+        response = fiche_animalService.getFiche_animalAll()
+        return response
+
+@app.route("/fiche_animal/<idAnimal>", methods=["GET", "PUT", "DELETE"])
+def fiche_animalById(idAnimal):
+    if(request.method == "GET") :
+        response = fiche_animalService.getFiche_animalById(idAnimal)
         return response
     
     if(request.method == "PUT") :
-        response = fiche_animalService.updateFiche_animal(json["idAnimal"], json["name"], json["idName"], json["idEspece"])
+        json = request.get_json()
+        response = fiche_animalService.updateFiche_animal(idAnimal, json["name"], json["description"], json["idName"], json["idEspece"], json["imageUrl"])
         return response
 
     if(request.method == "DELETE") :
-        response = fiche_animalService.deleteFiche_animal(json["idAnimal"])
+        response = fiche_animalService.deleteFiche_animal(idAnimal)
         return response
 
-    
+
 @app.route("/espece", methods=["POST", "GET", "PUT", "DELETE"])
 def espece():
     json = request.get_json()
