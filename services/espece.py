@@ -32,19 +32,27 @@ def createEspece(name) :
 
     return response
 
-def getEspece(idEspece) :
-    # On vérifie qu'on a bien une espèce
+def getAllEspece() :
+
+    # On récupère une espèce
+    response = especeModel.getAllEspece()
+
+    # On renvoie les informations de l'espèce
+    return response
+
+def getEspeceById(idEspece) :
+    # On vérifie que c'est correctement formater
     if(not idEspece) :
         response = {
-            "message" : "Il manque l'espèce",
+            "message" : "Il manque l'identifiant de l'espèce",
             "code" : 422
         }
         return response
 
-    # On récupère un utilisateur
-    response = especeModel.get(idEspece)
+    # On récupère une note
+    response = especeModel.getEspeceById(idEspece)
 
-    # On renvoie les informations de l'utilisateur
+    # On renvoie les informations de l'activité
     return response
 
 def updateEspece(idEspece, name) :
@@ -73,7 +81,7 @@ def updateEspece(idEspece, name) :
         return response
 
     # On vérifie si l'espèce existe
-    checkEspece = especeModel.get(idEspece)
+    checkEspece = especeModel.getEspeceById(idEspece)
 
     if(checkEspece["code"] == 404) :
         # L'espèce n'existe pas
@@ -103,7 +111,7 @@ def deleteEspece(idEspece) :
         return response
 
     # On vérifie que l'espèce existe
-    check = especeModel.get(idEspece)
+    check = especeModel.getEspeceById(idEspece)
 
     if(check["code"] == 404) :
         response = {

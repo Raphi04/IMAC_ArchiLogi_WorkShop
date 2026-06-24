@@ -1,6 +1,6 @@
 from database import connectToDB
 
-def create(name, idName, idEspece) :
+def create(name, description, idName, idEspece, imageUrl) :
     # Connexion à la BDD
     myDb = connectToDB()
     myCursor = myDb.cursor()
@@ -11,8 +11,10 @@ def create(name, idName, idEspece) :
         (
             NULL,
             "{name}",
+            "{description}",
             "{idName}",
-            {idEspece}
+            {idEspece},
+            "{imageUrl}"
         )
     '''
     myCursor.execute(sql)
@@ -22,22 +24,92 @@ def create(name, idName, idEspece) :
     myCursor.close()
     myDb.close()
 
-def get(idAnimal) :
+def getAll() :
+    # Connexion à la BDD
+    myDb = connectToDB()
+    myCursor = myDb.cursor()
+
+    # On récupère les informations de la note
+    sql = f'''
+        SELECT fiches_animal.name, fiches_animal.description, utilisateurs.idName, utilisateurs.username, especes.idEspece, especes.name, fiches_animal.imageURL
+        FROM fiches_animal
+        INNER JOIN utilisateurs ON fiches_animal.idName = utilisateurs.idName
+        INNER JOIN especes ON fiches_animal.idEspece = especes.idEspece
+        '''
+
+    myCursor.execute(sql)
+    datas = myCursor.fetchall()
+
+    if(datas):
+        response = {
+            "notes" : [],
+            "code" : 200
+        }
+
+        for data in datas :        
+            response["notes"].append(
+                {
+                    "animal" : {
+                        "name" : data[0],
+                        "description" : data[1],
+                        "imageUrl" : data[6]
+                    },
+                    "user" : {
+                        "idName" : data[2],
+                        "username" : data[3]
+                    },
+                    "espece" : {
+                        "idEspece" : data[4],
+                        "name" : data[5]
+                    }
+                },
+            )
+    
+    else :
+        response = {
+            "message" : "Fiches animaux non trouvées",
+            "code" : 404
+        }
+
+    # Fermeture de la connexion
+    myCursor.close()
+    myDb.close()
+
+    return response
+
+def getById(idAnimal) :
     # Connexion à la BDD
     myDb = connectToDB()
     myCursor = myDb.cursor()
 
     # On récupère les informations de l'animal
-    sql = f'''SELECT name, idName, idEspece FROM fiches_animal WHERE idAnimal = "{idAnimal}"'''
+    sql = f'''
+        SELECT fiches_animal.name, fiches_animal.description, utilisateurs.idName, utilisateurs.username, especes.idEspece, especes.name, fiches_animal.imageURL
+        FROM fiches_animal
+        INNER JOIN utilisateurs ON fiches_animal.idName = utilisateurs.idName
+        INNER JOIN especes ON fiches_animal.idEspece = especes.idEspece
+        WHERE idAnimal = "{idAnimal}"
+        '''
+
     myCursor.execute(sql)
     data = myCursor.fetchall()
 
     if(data):
         response = {
             "fiche_animal": {
-                "name" : data[0][0],
-                "idName" : data[0][1],
-                "idEspece" : data[0][2],
+                "animal" : {
+                    "name" : data[0][0],
+                    "description" : data[0][1],
+                    "imageUrl" : data[0][6]
+                },
+                "user" : {
+                    "idName" : data[0][2],
+                    "username" : data[0][3]
+                },
+                "espece" : {
+                    "idEspece" : data[0][4],
+                    "name" : data[0][5]
+                }
             },
             "code" : 200
         }
@@ -54,7 +126,7 @@ def get(idAnimal) :
 
     return response
 
-def update(idAnimal, name, idName, idEspece) :
+def update(idAnimal, name, description, idName, idEspece, imageUrl) :
     # Connexion à la BDD
     myDb = connectToDB()
     myCursor = myDb.cursor()
@@ -64,8 +136,10 @@ def update(idAnimal, name, idName, idEspece) :
         UPDATE fiches_animal SET 
         idAnimal = {idAnimal},
         name = "{name}",
+        description = "{description}",
         idName = "{idName}",
-        idEspece = {idEspece}
+        idEspece = {idEspece},
+        imageUrl = "{imageUrl}"
         WHERE idAnimal = {idAnimal}
     '''
     myCursor.execute(sql)

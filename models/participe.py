@@ -13,7 +13,7 @@ def create(idName, idAnimal, idActivite, date) :
             "{idName}",
             {idAnimal},
             {idActivite},
-            date
+            "{date}"
         )
     '''
     myCursor.execute(sql)

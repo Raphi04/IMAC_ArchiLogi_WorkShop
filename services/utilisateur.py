@@ -62,28 +62,37 @@ def createUtilisateur(idName, username, pwd) :
     
     return response
 
-def getUtilisateur(idName) :
-    # On vérifie qu'on a bien un identifiant
-    if(not idName) :
-        response = {
-            "message" : "Il manque l'identifiant",
-            "code" : 422
-        }
-        return response
+def getAllUtilisateur() :
 
-    # On récupère un utilisateur
-    response = utilisateurModel.get(idName)
+    # On récupère tous les utilisateurs
+    response = utilisateurModel.getAllUtilisateur()
 
     # On renvoie les informations de l'utilisateur
     return response
 
-def updateUtilisateur(previousIdName, idName, username, pwd) :
+def getUtilisateurById(idName) :
+    # On vérifie que c'est correctement formater
+    if(not idName) :
+        response = {
+            "message" : "Il manque l'identifiant de l'utilisateur",
+            "code" : 422
+        }
+        return response
+
+    # On récupère une note
+    response = utilisateurModel.getUtilisateurById(idName)
+
+    # On renvoie les informations de l'activité
+    return response
+
+
+def updateUtilisateur(previousIdName, newidName, username, pwd) :
     # On vérifie que c'est bien formaté
-    idName = idName.strip()
+    newidName = newidName.strip()
     username = username.strip()
     pwd = pwd.strip()
 
-    if(not idName) :
+    if(not newidName) :
         response = {
             "message" : "Il manque l'identifiant",
             "code" : 422
@@ -104,7 +113,7 @@ def updateUtilisateur(previousIdName, idName, username, pwd) :
         }
         return response
 
-    if(len(idName) > 20) :
+    if(len(newidName) > 20) :
         response = {
             "message" : "L'identifiant est trop grand",
             "code" : 403
@@ -126,13 +135,13 @@ def updateUtilisateur(previousIdName, idName, username, pwd) :
         return response
 
     # On vérifie que l'idName n'est pas déjà pris
-    if(previousIdName != idName) :
-        check = utilisateurModel.get(idName)
+    if(previousIdName != newidName) :
+        check = utilisateurModel.getUtilisateurById(newidName)
 
         if(check["code"] == 404) :
 
             # On modifie l'utilisateur
-            utilisateurModel.update(previousIdName, idName, username, pwd)
+            utilisateurModel.update(previousIdName, newidName, username, pwd)
             response = {
                 "message" : "Utilisateur correctement modifié",
                 "code" : 200
@@ -146,7 +155,7 @@ def updateUtilisateur(previousIdName, idName, username, pwd) :
 
     else : 
         # On modifie l'utilisateur
-        utilisateurModel.update(previousIdName, idName, username, pwd)
+        utilisateurModel.update(previousIdName, newidName, username, pwd)
         response = {
             "message" : "Utilisateur correctement modifié",
             "code" : 200
@@ -165,7 +174,7 @@ def deleteUtilisateur(idName) :
         return response
 
     # On vérifie que l'utilisateur existe
-    check = utilisateurModel.get(idName)
+    check = utilisateurModel.getUtilisateurById(idName)
 
     if(check["code"] == 404) :
         response = {
@@ -178,4 +187,37 @@ def deleteUtilisateur(idName) :
         response = utilisateurModel.delete(idName)
 
     # On renvoie une réponse
+    return response
+
+def connectUtilisateur(idName, pwd) :
+    # On vérifie qu'on a bien un identifiant
+    if(not idName) :
+        response = {
+            "message" : "Il manque l'identifiant",
+            "code" : 422
+        }
+        return response
+
+    # On vérifie qu'on a bien un mot de passe
+    if(not pwd) :
+        response = {
+            "message" : "Il manque le mot de passe",
+            "code" : 422
+        }
+        return response
+
+    # On teste si l'identifiant existe
+    checkName = utilisateurModel.get(idName)
+
+    if(checkName["code"] == 404) :
+        # L'utilisateur n'existe pas
+        response = {
+            "message" : "L'utilisateur n'existe pas",
+            "code" : 404
+        }
+        return response
+
+    # On teste le mot de passe
+    response = utilisateurModel.connectUtilisateur(idName, pwd)
+
     return response
