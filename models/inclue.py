@@ -90,6 +90,38 @@ def getInclueById(idInclue) :
 
     return response
 
+def getIncluByForeignKey(idEspece, idActivite) :
+    # Connexion à la BDD
+    myDb = connectToDB()
+    myCursor = myDb.cursor()
+
+    # On récupère les informations de l'inclusion
+    sql = f'''SELECT idInclue, idEspece, idActivite FROM inclue WHERE idEspece = {idEspece} AND idActivite = {idActivite}'''
+    myCursor.execute(sql)
+    data = myCursor.fetchall()
+
+    if(data):
+         response = {
+            "inclue": {
+                "idInclue" : data[0][0],
+                "idEspece" : data[0][1],
+                "idActivite" : data[0][2],
+            },
+            "code" : 200
+        }
+    
+    else :
+        response = {
+            "message" : "Inclusion non trouvée",
+            "code" : 404
+        }
+
+    # Fermeture de la connexion
+    myCursor.close()
+    myDb.close()
+
+    return response
+
 def update(idInclue,idEspece,idActivite) :
     # Connexion à la BDD
     myDb = connectToDB()

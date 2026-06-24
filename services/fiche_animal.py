@@ -1,5 +1,7 @@
 from flask import jsonify
 
+from datetime import datetime
+
 import models.fiche_animal as fiche_animalModel
 import models.utilisateur as utilisateurModel
 import models.espece as especeModel
@@ -100,7 +102,8 @@ def getFiche_animalAll() :
         # On récupère les commentaires de l'animal
         idAnimal = fiche_animal["animal"]["idAnimal"]
         getComms = commentaireModel.getByAnimal(idAnimal)
-        fiche_animal["commentaires"] = getComms["commentaires"]
+        if(getComms["code"] == 200) :
+            fiche_animal["commentaires"] = getComms["commentaires"]
 
         # On récupère la note moyenne
         idAnimal = fiche_animal["animal"]["idAnimal"]
@@ -277,6 +280,50 @@ def deleteFiche_animal(idAnimal) :
     else :
         # On supprime un utilisateur
         response = fiche_animalModel.delete(idAnimal)
+
+    # On renvoie une réponse
+    return response
+
+def checkAvailability(idAnimal, date):
+    # On vérifie qu'on a bien un identifiant
+    if(not idAnimal) :
+        response = {
+            "message" : "Il manque l'identifiant",
+            "code" : 422
+        }
+        return response
+        
+    # On vérifie que l'idAnimal existe
+    checkAnimal = fiche_animalModel.getById(idAnimal)
+
+    if(checkAnimal["code"] == 404) :
+        # L'animal n'existe pas
+        response = {
+            "message" : "L'animal n'existe pas",
+            "code" : 404
+        }
+        return response
+
+    reservationsDate = fiche_animalModel.getReservation(idAnimal)
+
+    if(reservationsDate["code"] == 200):
+        for reservationDate in reservationsDate["reservationsDate"] :
+            if(date == str(reservationDate)) :
+                response = {
+                    "message" : "Réservation déjà prise",
+                    "code" : 400
+                }
+                return response
+            else :
+                response = {
+                    "message" : "Réservation disponible",
+                    "code" : 200
+                }
+    else : 
+        response = {
+            "message" : "Réservations non trouvées",
+            "code" : 404
+        }
 
     # On renvoie une réponse
     return response

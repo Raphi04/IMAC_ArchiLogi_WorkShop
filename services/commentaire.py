@@ -175,7 +175,7 @@ def deleteCommentaire(idCommentaire) :
         return response
 
     # On vérifie que le commentaire existe
-    check = commentaireModel.get(idCommentaire)
+    check = commentaireModel.getById(idCommentaire)
 
     if(check["code"] == 404) :
         response = {

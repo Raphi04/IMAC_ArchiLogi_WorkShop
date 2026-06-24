@@ -176,9 +176,20 @@ def updateNote(idNote, idName, idAnimal,note) :
     checkAnimal = fiche_animalModel.getById(idAnimal)
 
     if(checkAnimal["code"] == 404) :
-        # L'utilisateur n'existe pas
+        # L'animal n'existe pas
         response = {
-            "message" : "L'espèce n'existe pas",
+            "message" : "L'animal n'existe pas",
+            "code" : 404
+        }
+        return response
+
+     # On vérifie que l'idNote existe
+    checkNote = noteModel.getNoteById(idNote)
+
+    if(checkNote["code"] == 404) :
+        # La note n'existe pas
+        response = {
+            "message" : "La note n'existe pas",
             "code" : 404
         }
         return response

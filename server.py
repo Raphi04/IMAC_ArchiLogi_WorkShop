@@ -33,7 +33,7 @@ def utilisateurByID(idName):
 
     if(request.method == "PUT") :
         json = request.get_json()
-        response = utilisateurService.updateUtilisateur(idName, json["newidName"], json["username"], json["pwd"])
+        response = utilisateurService.updateUtilisateur(idName, json["newIdName"], json["username"], json["pwd"])
         return response
 
     if(request.method == "DELETE") :
@@ -72,6 +72,12 @@ def fiche_animalById(idAnimal):
     if(request.method == "DELETE") :
         response = fiche_animalService.deleteFiche_animal(idAnimal)
         return response
+
+@app.route("/fiche_animal/date/<idAnimal>", methods=["GET"])
+def fiche_animalCheckAvailability(idAnimal):
+    json = request.get_json()
+    response = fiche_animalService.checkAvailability(idAnimal, json["date"])
+    return response
 
 @app.route("/fiche_animal/espece/<idEspece>", methods=["GET"])
 def fiche_animalByEspece(idEspece):
@@ -170,7 +176,8 @@ def activiteGetEspece(idActivite):
 
 @app.route("/activite/animal/<idActivite>", methods=["GET"])
 def activiteGetAnimals(idActivite):
-    response = activiteService.activiteGetAnimals(idActivite)
+    json = request.get_json()
+    response = activiteService.activiteGetAnimals(json["date"], idActivite)
     return response
 
 
