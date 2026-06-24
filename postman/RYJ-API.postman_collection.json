@@ -35,7 +35,13 @@
               "host": [
                 "localhost"
               ],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
+              "path": [
+                "utilisateur"
+              ]
               "path": [
                 "utilisateur"
               ]
@@ -68,7 +74,14 @@
               "host": [
                 "localhost"
               ],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
+              "path": [
+                "utilisateur",
+                "connect"
+              ]
               "path": [
                 "utilisateur",
                 "connect"
@@ -99,7 +112,13 @@
               "host": [
                 "localhost"
               ],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
+              "path": [
+                "utilisateur"
+              ]
               "path": [
                 "utilisateur"
               ]
@@ -129,7 +148,13 @@
               "host": [
                 "localhost"
               ],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
+              "path": [
+                "utilisateur"
+              ]
               "path": [
                 "utilisateur"
               ]
@@ -159,7 +184,13 @@
               "host": [
                 "localhost"
               ],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
+              "path": [
+                "utilisateur"
+              ]
               "path": [
                 "utilisateur"
               ]
@@ -194,7 +225,13 @@
               "host": [
                 "localhost"
               ],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
+              "path": [
+                "note"
+              ]
               "path": [
                 "note"
               ]
@@ -240,6 +277,9 @@
             },
             "url": {
               "raw": "localhost:5000/note/utilisateur/mrraphi04",
+              "host": [
+                "localhost"
+              ],
               "host": [
                 "localhost"
               ],
@@ -292,7 +332,13 @@
               "host": [
                 "localhost"
               ],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
+              "path": [
+                "note"
+              ]
               "path": [
                 "note"
               ]
@@ -382,22 +428,48 @@
       "name": "Commentaire",
       "item": [
         {
-          "name": "GET Commentaire",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
+          "name": "GET All Commentaires",
           "request": {
             "method": "GET",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"idCommentaire\" : 2\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
+            "url": {
+              "raw": "localhost:5000/commentaire/3",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "commentaire",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Commentaires By Animal",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:5000/commentaire/3",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "commentaire",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Commentaire By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
             "url": {
               "raw": "localhost:5000/commentaire",
               "host": [
@@ -418,7 +490,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idName\" : \"mrraphi04\",\r\n    \"idAnimal\" : 4,\r\n    \"commentaire\" : \"blablabla\"\r\n}",
+              "raw": "{\r\n    \"idName\" : \"mrraphi04\",\r\n    \"idAnimal\" : 10,\r\n    \"commentaire\" : \"blablabla\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -430,7 +502,13 @@
               "host": [
                 "localhost"
               ],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
+              "path": [
+                "commentaire"
+              ]
               "path": [
                 "commentaire"
               ]
@@ -445,7 +523,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idCommentaire\" : 2,\r\n    \"commentaire\" : \"Gloubiboulga\"\r\n}",
+              "raw": "{\r\n    \"commentaire\" : \"Gloubiboulga\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -470,15 +548,6 @@
           "request": {
             "method": "DELETE",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"idCommentaire\" : 2\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
             "url": {
               "raw": "localhost:5000/commentaire",
               "host": [
@@ -507,7 +576,13 @@
               "host": [
                 "localhost"
               ],
+              "host": [
+                "localhost"
+              ],
               "port": "5000",
+              "path": [
+                "fiche_animal"
+              ]
               "path": [
                 "fiche_animal"
               ]

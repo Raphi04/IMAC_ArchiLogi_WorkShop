@@ -103,23 +103,35 @@ def especeById(idEspece):
 
 @app.route("/commentaire", methods=["POST", "GET", "PUT", "DELETE"])
 def commentaire():
-    json = request.get_json()
 
     if(request.method == "POST") :
+        json = request.get_json()
         response = commentaireService.createCommentaire(json["idName"], json["idAnimal"], json["commentaire"])
         return response
 
     if(request.method == "GET") :
-        response = commentaireService.getCommentaire(json["idCommentaire"])
+        response = commentaireService.getAllCommentaires()
         return response
-    
+
+@app.route("/commentaire/<idCommentaire>", methods=["POST", "GET", "PUT", "DELETE"])
+def commentaireById(idCommentaire):
+    if(request.method == "GET") :
+        response = commentaireService.getCommentaireById(idCommentaire)
+        return response
+
     if(request.method == "PUT") :
-        response = commentaireService.updateCommentaire(json["idCommentaire"], json["commentaire"])
+        json = request.get_json()
+        response = commentaireService.updateCommentaire(idCommentaire, json["commentaire"])
         return response
 
     if(request.method == "DELETE") :
-        response = commentaireService.deleteCommentaire(json["idCommentaire"])
+        response = commentaireService.deleteCommentaire(idCommentaire)
         return response
+
+@app.route("/commentaire/animal/<idAnimal>", methods=["GET"])
+def commentairesByAnimal(idAnimal):
+    response = commentaireService.getCommentaireByAnimal(idAnimal)
+    return response
     
 @app.route("/activite", methods=["POST", "GET"])
 def activite():
