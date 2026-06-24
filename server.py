@@ -194,24 +194,30 @@ def inclue():
         response = inclueService.deleteInclue(json["idInclue"])
         return response
 
-@app.route("/participe", methods=["POST", "GET", "PUT", "DELETE"])
+@app.route("/participe", methods=["POST", "GET"])
 def participe():
-    json = request.get_json()
+    if(request.method == "GET") :
+        response = participeService.getParticipeAll()
+        return response
 
     if(request.method == "POST") :
+        json = request.get_json()
         response = participeService.createParticipe(json["idName"], json["idAnimal"], json["idActivite"], json["date"])
         return response
 
+@app.route("/participe/<idParticipe>", methods=["GET", "PUT", "DELETE"])
+def participeById(idParticipe):
     if(request.method == "GET") :
-        response = participeService.getParticipe(json["idParticipe"])
+        response = participeService.getParticipeById(idParticipe)
         return response
     
     if(request.method == "PUT") :
-        response = participeService.updateParticipe(json["idParticipe"], json["idName"], json["idAnimal"], json["idActivite"], json["date"])
+        json = request.get_json()
+        response = participeService.updateParticipe(idParticipe, json["idName"], json["idAnimal"], json["idActivite"], json["date"])
         return response
 
     if(request.method == "DELETE") :
-        response = participeService.deleteParticipe(json["idParticipe"])
+        response = participeService.deleteParticipe(idParticipe)
         return response
     
 @app.route("/note", methods=["POST", "GET"])

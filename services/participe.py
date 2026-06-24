@@ -105,9 +105,14 @@ def createParticipe(idName, idAnimal, idActivite, date) :
     
     return response
 
+def getParticipeAll():
+    # On récupère les participations
+    response = participeModel.getParticipeAll()
 
+    # On renvoie les informations des participations
+    return response
 
-def getParticipe(idParticipe) :
+def getParticipeById(idParticipe) :
     # On vérifie qu'on a bien un identifiant
     if(not idParticipe) :
         response = {
@@ -117,7 +122,7 @@ def getParticipe(idParticipe) :
         return response
 
     # On récupère la fiche animal
-    response = participeModel.get(idParticipe)
+    response = participeModel.getParticipeById(idParticipe)
 
     # On renvoie les informations de la fiche animal
     return response
@@ -160,7 +165,7 @@ def updateParticipe(idParticipe, idName, idAnimal, idActivite, date) :
         return response
 
     # On vérifie que l'idParticipe existe
-    checkParticipe = participeModel.get(idParticipe)
+    checkParticipe = participeModel.getParticipeById(idParticipe)
 
     if(checkParticipe["code"] == 404) :
         # La participation n'existe pas
@@ -235,7 +240,7 @@ def deleteParticipe(idParticipe) :
         return response
 
     # On vérifie que la participation existe
-    check = participeModel.get(idParticipe)
+    check = participeModel.getParticipeById(idParticipe)
 
     if(check["code"] == 404) :
         response = {
