@@ -179,3 +179,36 @@ def deleteUtilisateur(idName) :
 
     # On renvoie une réponse
     return response
+
+def connectUtilisateur(idName, pwd) :
+    # On vérifie qu'on a bien un identifiant
+    if(not idName) :
+        response = {
+            "message" : "Il manque l'identifiant",
+            "code" : 422
+        }
+        return response
+
+    # On vérifie qu'on a bien un mot de passe
+    if(not pwd) :
+        response = {
+            "message" : "Il manque le mot de passe",
+            "code" : 422
+        }
+        return response
+
+    # On teste si l'identifiant existe
+    checkName = utilisateurModel.get(idName)
+
+    if(checkName["code"] == 404) :
+        # L'utilisateur n'existe pas
+        response = {
+            "message" : "L'utilisateur n'existe pas",
+            "code" : 404
+        }
+        return response
+
+    # On teste le mot de passe
+    response = utilisateurModel.connectUtilisateur(idName, pwd)
+
+    return response

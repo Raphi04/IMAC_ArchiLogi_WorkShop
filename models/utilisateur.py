@@ -92,3 +92,31 @@ def delete(idName) :
     myDb.close()
 
     return response
+
+def connectUtilisateur(idName, pwd) :
+    # Connexion à la BDD
+    myDb = connectToDB()
+    myCursor = myDb.cursor()
+
+    # On vérifie le mot de passe de l'utilisateur
+    sql = f'''SELECT pwd FROM utilisateurs WHERE idName = "{idName}"'''
+    myCursor.execute(sql)
+    data = myCursor.fetchall()
+
+    if(data[0][0] == pwd):
+        response = {
+            "message": "L'utilisateur est connecté",
+            "code" : 200
+        }
+    
+    else :
+        response = {
+            "message" : "Le mot de passe n'est pas le bon",
+            "code" : 400
+        }
+    
+    # Fermeture de la connexion
+    myCursor.close()
+    myDb.close()
+
+    return response

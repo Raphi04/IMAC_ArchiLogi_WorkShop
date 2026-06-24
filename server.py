@@ -33,6 +33,12 @@ def utilisateur():
         response = userService.deleteUtilisateur(json["idName"])
         return response
 
+@app.route("/utilisateur/connect", methods=["GET"])
+def utilisateurConnect():
+    json = request.get_json()
+    response = userService.connectUtilisateur(json["idName"], json["pwd"])
+    return response
+
 @app.route("/fiche_animal", methods=["POST", "GET", "PUT", "DELETE"])
 def fiche_animal():
     json = request.get_json()
