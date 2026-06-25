@@ -40,7 +40,7 @@ def utilisateurByID(idName):
         response = utilisateurService.deleteUtilisateur(idName)
         return response
 
-@app.route("/utilisateur/connect", methods=["GET"])
+@app.route("/utilisateur/connect", methods=["POST"])
 def utilisateurConnect():
     json = request.get_json()
     response = utilisateurService.connectUtilisateur(json["idName"], json["pwd"])

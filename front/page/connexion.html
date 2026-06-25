@@ -1,36 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Connexion</title>
-    <link rel="stylesheet" href="../style/composant/style.css">
-    <link rel="stylesheet" href="../style/composant/variable.css">
-    <link rel="stylesheet" href="../style/connexionInscription.css">
-    <link rel="icon" href="../ressource/img/RYJ.svg" type="image/svg">
+    <link rel="stylesheet" href="../style/composant/style.css" />
+    <link rel="stylesheet" href="../style/composant/variable.css" />
+    <link rel="stylesheet" href="../style/connexionInscription.css" />
+    <link rel="icon" href="../ressource/img/RYJ.svg" type="image/svg" />
     <script src="../script/script.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <main id="connexionInscription-main">
-        <div>
-            <h1 class="style">Bienvenue</h1>
-            <p>Tu es ici pour trouver ton shrek</p>
-        </div>
-        <div>
-            <p>Pour cela il te suffit de te connecter ;)</p>
-            <form action="">
-                <input type="email" name="email" id="email" placeholder="toto@exemple.com">
-                <input type="password" name="password" id="password" placeholder="mot de passe">
-                <input id="submit" type="submit" value="Se connecter">
-            </form>
-            <a href="./inscription.html">Je n'ai pas de compte</a>
-        </div>
+      <div>
+        <h1 class="style">Bienvenue</h1>
+        <p>Tu es ici pour trouver ton shrek</p>
+      </div>
+      <div>
+        <p>Pour cela il te suffit de te connecter ;)</p>
+        <form id="connexionForm">
+          <input
+            type="text"
+            name="idName"
+            id="idName"
+            placeholder="Identifiant (ex: cherriergaming)"
+            maxlength="20"
+          />
+          <input type="password" name="pwd" id="pwd" placeholder="Mot de passe" maxlength="50" />
+          <input id="submit" type="submit" value="Se connecter" />
+          <p id="errorMessage"></p>
+        </form>
+        <a href="./inscription.html">Je n'ai pas de compte</a>
+      </div>
     </main>
     <footer id="footer-main">
-        <div>
-            <p class="style">made with</p>
-            <img src="./ressource/icons/heart.png" alt="">
-        </div>
+      <div>
+        <p class="style">made with</p>
+        <img src="../ressource/icons/heart.png" alt="" />
+      </div>
     </footer>
-</body>
+    <script src="../script/environnement.js"></script>
+    <script src="../script/user.js"></script>
+    <script src="../script/connection.js"></script>
+  </body>
 </html>

@@ -1,67 +1,71 @@
-#connexionInscription-main{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding:2rem;
-    height: 95%;
+#connexionInscription-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  height: 95%;
 }
 
-h1{
-    font-size: 2rem;
-    text-align: center;
+h1 {
+  font-size: 2rem;
+  text-align: center;
 }
 
-p{
+p {
+  font-size: 0.75rem;
+}
+
+a {
+  font-size: 0.75rem;
+  text-decoration: underline;
+}
+
+button {
+  all: unset;
+}
+
+form {
+  padding: 1em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+input {
+  padding: 0.5rem 0.25rem;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+}
+
+#submit {
+  padding: 0.5rem 0;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  margin-top: 0.25rem;
+  background-color: white;
+}
+
+@media screen and (min-width: 1020px) {
+  #connexionInscription-main div:first-child > p {
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  input {
     font-size: 0.75rem;
+  }
+  #connexionInscription-main {
+    justify-content: center;
+    gap: 3rem;
+  }
 }
 
-a{
-    font-size: 0.75rem;
-    text-decoration: underline;
-}
-
-button{
-    all:unset;
-}
-
-form{
-    padding: 1em 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    width: 100%;
-}
-
-input{
-    padding: 0.5rem 0.25rem;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-radius: 0;
-    border-bottom: 1px solid black;
-}
-
-#submit{
-    padding: 0.5rem 0;
-    border: 1px solid black;
-    border-radius: 0.25rem;
-    margin-top: 0.25rem;
-    background-color: white;
-}
-
-@media screen and (min-width:1020px) {
-    #connexionInscription-main div:first-child>p{
-        font-size: 1rem;
-    }
-    h1{
-        font-size: 2.5rem;
-    }
-    input{
-        font-size: 0.75rem;
-    }
-    #connexionInscription-main {
-        justify-content: center;
-        gap: 3rem;
-    }
+p#errorMessage {
+  color: red;
 }

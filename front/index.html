@@ -10,7 +10,7 @@
     <link rel="icon" href="./ressource/img/RYJ.svg" type="image/svg">
     <script src="./script/script.js"></script>
 </head>
-<body>
+<body class="disappear">
     <header>
         <nav id="menuNotDisplay">
             <ul>
@@ -37,6 +37,7 @@
             <a  class="style" href="./page/reservation.html">------ Réserver ------<a>
             <a  class="style" href="./page/connexion.html">------ Connexion ------</a>
             <a  class="style" href="./page/inscription.html">------ Inscription ------</a>
+            <a  class="style" href="" onClick="userDisconnect()">------ Déconnexion ------</a>
         </div>
     </div>
     </header>
@@ -87,70 +88,6 @@
                 </div>
             </div>
             <div id="notreSelection_card-container">
-                <!-- CARTE ANIMAL -->
-                <div class="animalCard mammifere">
-                    <!-- Première partie de la carte -->
-                    <div>
-                        <img src="./ressource/img/home/animalCard/singe.png" alt="">
-                        <div class="animalDescription-container">
-                            <div class="animalCard_nameAndrating">
-                                <h3 class="animalCard_name">Ricard</h3>
-                                <div class="animalCard_rating">
-                                    <p>1.5</p>
-                                    <img src="./ressource/icons/stars.svg" alt="">
-                                </div>
-                            </div>
-                            <p class="animalCard_categorie">Mammifères</p>
-                            <p>Son gros paff c’est quoi ce nez aie aie aie, cié le tigre de la jungle ! Eh bah nan Cheh c’est juste un babouig</p>
-                        </div>
-                    </div>
-                    <!-- Deuxieme partie de la carte -->
-                    <div class="animalCardCommentaire-container">
-                        <!-- Commentaires -->
-                         <div>
-                            <div class="commentaire">
-                                <p class="username">Tom</p>
-                                <p class="message">Argh starfoulah il est moche zebi</p>
-                            </div>
-                        </div>
-                        <form action="">
-                            <input class="commentaire1" type="text" placeholder="Écrire un commentaire...">
-                            <input class="submitCommentaire" type="submit" value="Envoyer">
-                        </form>
-                    </div>
-                </div>
-                <!-- CARTE ANIMAL -->
-                <div class="animalCard mammifere">
-                    <!-- Première partie de la carte -->
-                    <div>
-                        <img src="./ressource/img/home/animalCard/singe.png" alt="">
-                        <div class="animalDescription-container">
-                            <div class="animalCard_nameAndrating">
-                                <h3 class="animalCard_name">Ricard</h3>
-                                <div class="animalCard_rating">
-                                    <p>1.5</p>
-                                    <img src="./ressource/icons/stars.svg" alt="">
-                                </div>
-                            </div>
-                            <p class="animalCard_categorie">Mammifères</p>
-                            <p>Son gros paff c’est quoi ce nez aie aie aie, cié le tigre de la jungle ! Eh bah nan Cheh c’est juste un babouig</p>
-                        </div>
-                    </div>
-                    <!-- Deuxieme partie de la carte -->
-                    <div class="animalCardCommentaire-container">
-                        <!-- Commentaires -->
-                         <div>
-                            <div class="commentaire">
-                                <p class="username">Tom</p>
-                                <p class="message">Argh starfoulah il est moche zebi</p>
-                            </div>
-                        </div>
-                        <form action="">
-                            <input class="commentaire1" type="text" placeholder="Écrire un commentaire...">
-                            <input class="submitCommentaire" type="submit" value="Envoyer">
-                        </form>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
@@ -160,5 +97,8 @@
             <img src="./ressource/icons/heart.png" alt="">
         </div>
     </footer>
+    <script src="script/environnement.js"></script>
+    <script src="script/user.js"></script>
+    <script src="script/accueil.js"></script>
 </body>
 </html>

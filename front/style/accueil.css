@@ -1,289 +1,311 @@
 /* ------------- TITLE ------------- */
 
-#title-container{
-    width: 100%;
-    height: fit-content;
-}
-#title-container div{
-    height: fit-content;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+body.disappear {
+  display: none;
 }
 
-#title-container>div>h1{
-    font-size: 1.5rem;
+* {
+  scroll-behavior: smooth;
 }
 
-#title-container>div>p{
-    font-size: 0.75rem;
+#title-container {
+  width: 100%;
+  height: fit-content;
+}
+#title-container div {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#title-container>div{
-    padding-top: 5.3rem;
-    padding-bottom: 3.4rem;
+#title-container > div > h1 {
+  font-size: 1.5rem;
+}
+
+#title-container > div > p {
+  font-size: 0.75rem;
+}
+
+#title-container > div {
+  padding-top: 5.3rem;
+  padding-bottom: 3.4rem;
 }
 
 /* ------------- ANIMAUX SLIDER ------------- */
-#animauxSlider-container{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: fit-content;
-    gap: 0.5rem;
+#animauxSlider-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  gap: 0.5rem;
 }
 
-#animauxSlider-container div{
-    display: flex;
-    overflow: hidden;
-    justify-content: center;
-    width: 100%;
-    height: fit-content;
-    gap:0.5rem;
+#animauxSlider-container div {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+  gap: 0.5rem;
 }
 
-#animauxSlider-container #petiteImage-container img{
-    height: 8.5rem;
+#animauxSlider-container #petiteImage-container img {
+  height: 8.5rem;
 }
 
-#animauxSlider-container #moyenneImage-container img{
-    height: 12rem;
+#animauxSlider-container #moyenneImage-container img {
+  height: 12rem;
 }
 
-#animauxSlider-container #grandeImage-container img{
-    height: 13rem;
+#animauxSlider-container #grandeImage-container img {
+  height: 13rem;
 }
 
 /* ------------- SELECTION ------------- */
-#notreSelection-container{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    padding: 1.75rem 1.75rem 0.75rem 1.75rem;
+#notreSelection-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 1.75rem 0.75rem 1.75rem;
 }
-#notreSelection-container2{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    padding: 1.75rem 1.75rem 2.75rem 1.75rem;
-    gap: 0.5rem;
-}
-
-#notreSelection-container>h2{
-    font-size: 1rem;
+#notreSelection-container2 {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 1.75rem 2.75rem 1.75rem;
+  gap: 0.5rem;
 }
 
-#notreSelection-container>div>p{
-    font-size: 0.5rem;
+#notreSelection-container > h2 {
+  font-size: 1rem;
 }
 
-#notreSelection_filtre{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem;
+#notreSelection-container > div > p {
+  font-size: 0.5rem;
 }
 
-#notreSelection_filtre>button{
-    font-size: 0.5rem;
-    border: solid 1px var(--gris1);
-    border-radius: 4px;
-    padding: 0.25rem 0.5rem;
+#notreSelection_filtre {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
 }
 
-#notreSelection-container>div{
-    padding: 0.25rem 0 0.5rem 0;
+#notreSelection_filtre > button {
+  font-size: 0.5rem;
+  border: solid 1px var(--gris1);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+}
+
+#notreSelection-container > div {
+  padding: 0.25rem 0 0.5rem 0;
 }
 
 /* ------------- ANIMAL CARD ------------- */
 
-.animalCard{
-    background-color: var(--gris1);
-    border-radius: 6px;
-    padding: 0.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    margin-bottom:0.5rem;
+.animalCard {
+  background-color: var(--gris1);
+  border-radius: 6px;
+  padding: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+  max-height: 40rem;
 }
 
-.animalCard>div{
-    background-color: var(--white);
-    border-radius: 4px;
-    min-height: 15rem;
+.animalCard > div {
+  background-color: var(--white);
+  border-radius: 4px;
+  min-height: 15rem;
 }
 
-.animalCard>div>img{
-    border-radius: 4px;
-    padding: 0.5rem;
-    width: 100%;
+.animalCard > div > img {
+  border-radius: 4px;
+  padding: 0.5rem;
+  width: 100%;
 }
 
-.animalDescription-container{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 0.25rem 0.75rem 1.25rem 0.75rem;
-    gap: 0.55rem;
-    font-size: 0.5rem;
+.animalDescription-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0.25rem 0.75rem 1.25rem 0.75rem;
+  gap: 0.55rem;
+  font-size: 0.5rem;
 }
 
-.animalCard_nameAndrating{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    /* padding :0rem 1rem 0.55rem 1rem; */
+.animalCard_nameAndrating {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  /* padding :0rem 1rem 0.55rem 1rem; */
+  font-size: 0.75rem;
+}
+
+.animalCard_rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.animalCard_categorie {
+  font-size: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border: solid 1px var(--gris2);
+  width: fit-content;
+  border-radius: 4px;
+}
+
+.animalCardCommentaire-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+}
+
+.animalCardCommentaire-container > div:first-child {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1rem;
+  height: 100%;
+  overflow: auto;
+}
+
+.animalCardCommentaire-container > div {
+  background-color: var(--white);
+  border: solid 1px var(--gris2);
+  border-radius: 4px;
+  padding: 0.25rem;
+}
+
+.commentaire {
+  display: flex;
+  flex-direction: column;
+}
+
+.commentaire > .username {
+  padding-left: 0.5rem;
+  font-size: 0.375rem;
+}
+
+.commentaire > .message {
+  font-size: 0.5rem;
+  background-color: var(--gris2);
+  border-radius: 18px;
+  padding: 0.35rem 0.375rem;
+  width: fit-content;
+}
+.animalCardCommentaire-container > form {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem;
+  gap: 0.25rem;
+}
+
+#main1 {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 420px) {
+  #notreSelection-container > div > p {
     font-size: 0.75rem;
-}
-
-.animalCard_rating{
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-
-}
-
-.animalCard_categorie{
+  }
+  #notreSelection_filtre > button {
+    font-size: 0.75rem;
+  }
+  .animalCard_categorie {
+    font-size: 0.75rem;
+  }
+  .animalDescription-container {
+    font-size: 0.75rem;
+  }
+  .commentaire > .username {
     font-size: 0.5rem;
-    padding: 0.25rem 0.5rem;
-    border: solid 1px var(--gris2);
-    width: fit-content;
-    border-radius: 4px;
+  }
+  .commentaire > .message {
+    font-size: 0.75rem;
+  }
 }
 
-.animalCardCommentaire-container{
-    display: flex;
-    flex-direction: column;
-    padding: 0.75rem;
-}
-
-.animalCardCommentaire-container div:first-child{
-    flex: 1;
-}
-
-.animalCardCommentaire-container>div{
-    background-color: var(--white);
-    border: solid 1px var(--gris2);
-    border-radius: 4px;
-    padding: 0.25rem;
-}
-
-.commentaire{
-    display: flex;
-    flex-direction: column;
-}
-
-.commentaire>.username{
-    padding-left: 0.5rem;
-    font-size: 0.375rem;
-}
-
-.commentaire>.message{
+@media screen and (min-width: 1020px) {
+  #title-container > div > p {
+    font-size: 1rem;
+  }
+  #title-container > div > h1 {
+    font-size: 2rem;
+  }
+  #notreSelection-container > h2 {
+    font-size: 1.5rem;
+  }
+  .animalCard {
+    flex-direction: row;
+    width: 49.5%;
+  }
+  .commentaire > .message {
     font-size: 0.5rem;
-    background-color: var(--gris2);
-    border-radius: 18px;
-    padding: 0.35rem 0.375rem;
-    width: fit-content;
-}
-.animalCardCommentaire-container>form{
+  }
+  #notreSelection_card-container {
     display: flex;
-    flex-direction: column;
-    padding: 0.25rem;
-    gap: 0.25rem;
-}
-
-#main1{
-    display: flex;
-    flex-direction: column;
-}
-@media screen and (min-width:420px) {
-    #notreSelection-container>div>p {
-        font-size: 0.75rem;
-    }
-    #notreSelection_filtre>button{
-        font-size: 0.75rem;
-    }
-    .animalCard_categorie {
-        font-size: 0.75rem;
-    }
-    .animalDescription-container {
-        font-size: 0.75rem;
-    }
-    .commentaire>.username {
-        font-size: 0.5rem;
-    }
-    .commentaire>.message {
-        font-size: 0.75rem;
-    }
-}
-
-@media screen and (min-width:1020px) {
-    #title-container>div>p {
-        font-size: 1rem;
-    }
-    #title-container>div>h1 {
-        font-size: 2rem;
-    }
-    #notreSelection-container>h2 {
-        font-size: 1.5rem;
-    }
-    .animalCard {
-        flex-direction: row;
-        width: 49.5%;
-    }
-    .commentaire>.message {
-        font-size: 0.5rem;
-    }
-    #notreSelection_card-container{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        justify-content: center;
-    }
-    .animalCard>div {
-        width: 50%;
-    }
-    /* #notreSelection-container>div {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .animalCard > div {
+    width: 50%;
+  }
+  /* #notreSelection-container>div {
         display: flex;
         flex-direction: row;
     } */
 }
 
-.commentaire1{
-    background-color: var(--gris3);
-    border: 1px solid black;
-    border-radius: 0.25rem;
-    color: black;
-    padding: 0.25rem 0.75rem;
+.commentaire1 {
+  background-color: var(--gris3);
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  color: black;
+  padding: 0.25rem 0.75rem;
 }
 
-.submitCommentaire{
-    background-color: var(--white);
-    border: 1px solid black;
-    border-radius: 0.25rem;
-    color: black;
-    padding: 0.25rem 0.75rem;
+.submitCommentaire {
+  background-color: var(--white);
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  color: black;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
-#reservation-button{
-    background-color: white;
-    padding: 1rem;
-    width: 100%;
-    height: fit-content;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    justify-content: right;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+.submitCommentaire:hover {
+  background-color: rgb(231, 231, 231);
 }
 
-#reservation-button>input{
-    background-color: white;
-    border: 1px solid black;
-    padding: 0.25rem 1rem;
-    border-radius: 55px;
-    font-size: 1rem;
+#reservation-button {
+  background-color: white;
+  padding: 1rem;
+  width: 100%;
+  height: fit-content;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: right;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+#reservation-button > input {
+  background-color: white;
+  border: 1px solid black;
+  padding: 0.25rem 1rem;
+  border-radius: 55px;
+  font-size: 1rem;
+}
+
+p.errorMessage {
+  color: red;
 }
