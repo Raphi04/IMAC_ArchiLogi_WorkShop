@@ -74,7 +74,7 @@ async function getAnimals() {
 
 async function addFiltre() {
   try {
-    const response = await fetch(back + "especes", {
+    const response = await fetch(back + "espece", {
       method: "GET",
     });
 
@@ -87,7 +87,7 @@ async function addFiltre() {
     if (data["code"] == 200) {
       data["especes"].forEach((espece) => {
         especeContainer.innerHTML += `
-          <button id="${espece["name"]}">Mammifères</button>
+          <button id="${espece["name"]}">${espece["name"]}</button>
         `;
       });
     }
@@ -105,6 +105,7 @@ async function onLoad() {
 
   /* Get animals */
   await getAnimals();
+  await addFiltre();
 
   allForms = document.querySelectorAll(".commentSender");
 
