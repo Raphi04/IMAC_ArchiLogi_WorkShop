@@ -44,7 +44,7 @@ body.disappear {
 
 #animauxSlider-container div {
   display: flex;
-  overflow: hidden;
+  overflow: auto;
   justify-content: center;
   width: 100%;
   height: fit-content;
