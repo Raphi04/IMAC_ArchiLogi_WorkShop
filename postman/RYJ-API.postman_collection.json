@@ -54,7 +54,7 @@
           "response": []
         },
         {
-          "name": "GET Connection",
+          "name": "POST Connection",
           "request": {
             "auth": {
               "type": "noauth"
@@ -330,14 +330,14 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "localhost:5000/fiche_animal/12",
+              "raw": "localhost:5000/fiche_animal/13",
               "host": [
                 "localhost"
               ],
               "port": "5000",
               "path": [
                 "fiche_animal",
-                "12"
+                "13"
               ]
             }
           },
@@ -877,12 +877,9 @@
           "response": []
         },
         {
-          "name": "GET Animals By Activite Id",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
+          "name": "POST Animals By Activite Id",
           "request": {
-            "method": "GET",
+            "method": "POST",
             "header": [],
             "body": {
               "mode": "raw",
@@ -1137,7 +1134,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idName\" : \"julienleeder77\",\r\n    \"idAnimal\" : 12,\r\n    \"idActivite\" : 4,\r\n    \"date\" : \"2026-08-24\"\r\n}",
+              "raw": "{\r\n    \"idName\" : \"julienleeder77\",\r\n    \"idAnimal\" : 13,\r\n    \"idActivite\" : 4,\r\n    \"date\" : \"2026-08-23\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1200,14 +1197,14 @@
               }
             },
             "url": {
-              "raw": "localhost:5000/participe/6",
+              "raw": "localhost:5000/participe/8",
               "host": [
                 "localhost"
               ],
               "port": "5000",
               "path": [
                 "participe",
-                "6"
+                "8"
               ]
             }
           },

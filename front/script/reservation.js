@@ -60,6 +60,7 @@ async function getAllActivities() {
 }
 
 async function getAnimals(idActivite, date) {
+  animalContainer.innerHTML = "";
   allAnimalsSelected = [];
   message.innerHTML = "";
   window.history.pushState(
@@ -150,7 +151,8 @@ async function onLoad() {
   await getAnimals(idActivite, currentDate);
 }
 
-function changeActivity(idActivite) {
+function changeActivity(newIdActivite) {
+  idActivite = newIdActivite;
   getAnimals(idActivite, inputDate.value);
 }
 
