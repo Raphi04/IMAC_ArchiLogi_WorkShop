@@ -292,8 +292,19 @@ body.disappear {
   transition: all 0.2s ease-in-out;
 }
 
+.submitCommentaire.selectionner {
+  background-color: #2d7819;
+  border-color: #2d7819;
+  color: #ffffff;
+}
+
 .submitCommentaire:hover {
   background-color: rgb(231, 231, 231);
+}
+
+.submitCommentaire.selectionner:hover {
+  background-color: #245f14;
+  border-color: #245f14;
 }
 
 #reservation-button {
@@ -320,4 +331,33 @@ body.disappear {
 
 p.errorMessage {
   color: red;
+}
+
+#message.success {
+  color: #2d7819;
+}
+
+#message.error {
+  color: red;
+}
+
+#sendReservation {
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+#sendReservation:hover {
+  background-color: #e3e3e3;
+}
+
+#noAnimal {
+  color: red;
+  font-size: 20px;
+  width: 100%;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

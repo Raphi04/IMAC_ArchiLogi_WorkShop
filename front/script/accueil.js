@@ -26,7 +26,7 @@ async function getAnimals() {
                     <div class="animalCard_nameAndrating">
                         <h3 class="animalCard_name">${fiche_animal["animal"]["name"]}</h3>
                         <div class="animalCard_rating">
-                            <p>${fiche_animal["moyenne-note"]}</p>
+                            <p>${fiche_animal["moyenne-note"] ? fiche_animal["moyenne-note"] : "Non noté"}</p>
                             <img src="./ressource/icons/stars.svg" alt="">
                         </div>
                     </div>

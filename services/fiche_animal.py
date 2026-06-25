@@ -321,8 +321,8 @@ def checkAvailability(idAnimal, date):
                 }
     else : 
         response = {
-            "message" : "Réservations non trouvées",
-            "code" : 404
+            "message" : "Réservation disponible",
+            "code" : 200
         }
 
     # On renvoie une réponse
