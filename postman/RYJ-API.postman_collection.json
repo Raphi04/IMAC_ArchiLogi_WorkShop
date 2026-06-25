@@ -55,18 +55,15 @@
         },
         {
           "name": "GET Connection",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
           "request": {
             "auth": {
               "type": "noauth"
             },
-            "method": "GET",
+            "method": "POST",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idName\" : \"julienleeder\",\r\n    \"pwd\" : \"poisson\"\r\n}",
+              "raw": "{\r\n    \"idName\" : \"julienleeder77\",\r\n    \"pwd\" : \"poisson\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -405,7 +402,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"name\" : \"Patrick\",\r\n    \"description\" : \"Il aime bien parler\",\r\n    \"idName\" : \"julienleeder77\",\r\n    \"idEspece\" : 5,\r\n    \"imageUrl\" : \"https://media.licdn.com/dms/image/v2/D4E03AQEW-WqPYIMsrw/profile-displayphoto-shrink_400_400/B4EZUk8udkG0Ag-/0/1740081654118?e=1784160000&v=beta&t=afsTDQzdPg4-XRjl1iuqBu4EpGx5fQzNQi_W4xYwS38\"\r\n}",
+              "raw": "{\r\n    \"name\" : \"Julien\",\r\n    \"description\" : \"Il aime bien parler\",\r\n    \"idName\" : \"julienleeder77\",\r\n    \"idEspece\" : 5,\r\n    \"imageUrl\" : \"https://media.licdn.com/dms/image/v2/D4E03AQEW-WqPYIMsrw/profile-displayphoto-shrink_400_400/B4EZUk8udkG0Ag-/0/1740081654118?e=1784160000&v=beta&t=afsTDQzdPg4-XRjl1iuqBu4EpGx5fQzNQi_W4xYwS38\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -750,7 +747,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"idName\" : \"julienleeder77\",\r\n    \"idAnimal\" : 12,\r\n    \"commentaire\" : \"blablabla\"\r\n}",
+              "raw": "{\r\n    \"idName\" : \"julienleeder77\",\r\n    \"idAnimal\" : 12,\r\n    \"commentaire\" : \"blablablagfrhuoofezjzepaio\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"

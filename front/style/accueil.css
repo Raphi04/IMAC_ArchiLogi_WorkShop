@@ -95,10 +95,21 @@ body.disappear {
 }
 
 #notreSelection_filtre > button {
+  cursor: pointer;
   font-size: 0.5rem;
   border: solid 1px var(--gris1);
   border-radius: 4px;
   padding: 0.25rem 0.5rem;
+  background-color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+#notreSelection_filtre > button:hover {
+  background-color: rgb(219, 219, 219);
+}
+
+#notreSelection_filtre > button.selected {
+  background-color: rgb(219, 219, 219);
 }
 
 #notreSelection-container > div {

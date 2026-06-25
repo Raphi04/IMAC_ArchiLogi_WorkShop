@@ -11,7 +11,6 @@
     <script src="../script/script.js"></script>
     <script src="../script/environnement.js"></script>
     <script src="../script/user.js"></script>
-    <script src="../script/accueil.js"></script>
 </head>
 <body class="disappear">
     <header>
@@ -45,98 +44,22 @@
     </div>
     </header>
     <main id="accueil-main">
-        <form action="">
-            <section id="title-container">
-                <div>
-                    <h1 class="style">Trouve ta mocheté</h1>
-                    <p class="italic">Après tout la beauté est suggestive</p>
-                </div>
-            </section>
-            <!-- CORRECTION -->
-            <section id="notreSelection-container2">
-                <h2 class="style">Notre activités</h2>
-                <div>
-                    <p>Filtre</p>
-                    <div id="notreSelection_filtre">
-                        <button id="tout">Tout</button>
-                        <button id="mammiferes">Mammifères</button>
-                        <button id="poissons">Poissons</button>
-                        <button id="amphibiens">Amphibiens</button>
-                        <button id="reptiles">Reptiles</button>
-                        <button id="oiseaux">Oiseaux</button>
-                    </div>
-                </div>
-                <div id="notreSelection_card-container">
-                    <!-- CARTE ANIMAL -->
-                    <div class="animalCard mammifere">
-                        <!-- Première partie de la carte -->
-                        <div>
-                            <img src="../ressource/img/home/animalCard/singe.png" alt="">
-                            <div class="animalDescription-container">
-                                <div class="animalCard_nameAndrating">
-                                    <h3 class="animalCard_name">Ricard</h3>
-                                    <div class="animalCard_rating">
-                                        <p>1.5</p>
-                                        <img src="../ressource/icons/stars.svg" alt="">
-                                    </div>
-                                </div>
-                                <p class="animalCard_categorie">Mammifères</p>
-                                <p>Son gros paff c’est quoi ce nez aie aie aie, cié le tigre de la jungle ! Eh bah nan Cheh c’est juste un babouig</p>
-                                <input id="selection1" onclick="isSelected(1)" class="submitCommentaire" type="button" value="Sélectionner">
-                            </div>
-                        </div>
-                        <!-- Deuxieme partie de la carte -->
-                        <div class="animalCardCommentaire-container">
-                            <!-- Commentaires -->
-                            <div>
-                                <div class="commentaire">
-                                    <p class="username">Tom</p>
-                                    <p class="message">Argh starfoulah il est moche zebi</p>
-                                </div>
-                            </div>
-                            <!-- <form action="">
-                                <input class="commentaire1" type="text" placeholder="Écrire un commentaire...">
-                                <input class="submitCommentaire" type="submit" value="Envoyer">
-                            </form> -->
-                        </div>
-                    </div>
-                    <!-- CARTE ANIMAL -->
-                    <div class="animalCard mammifere">
-                        <!-- Première partie de la carte -->
-                        <div>
-                            <img src="../ressource/img/home/animalCard/singe.png" alt="">
-                            <div class="animalDescription-container">
-                                <div class="animalCard_nameAndrating">
-                                    <h3 class="animalCard_name">Ricard</h3>
-                                    <div class="animalCard_rating">
-                                        <p>1.5</p>
-                                        <img src="../ressource/icons/stars.svg" alt="">
-                                    </div>
-                                </div>
-                                <p class="animalCard_categorie">Mammifères</p>
-                                <p>Son gros paff c’est quoi ce nez aie aie aie, cié le tigre de la jungle ! Eh bah nan Cheh c’est juste un babouig</p>
-                                <input id="selection2" onclick="isSelected(2)" class="submitCommentaire" type="button" value="Sélectionner">
-                            </div>
-                        </div>
-                        <!-- Deuxieme partie de la carte -->
-                        <div class="animalCardCommentaire-container">
-                            <!-- Commentaires -->
-                            <div>
-                                <div class="commentaire">
-                                    <p class="username">Tom</p>
-                                    <p class="message">Argh starfoulah il est moche zebi</p>
-                                </div>
-                            </div>
-                            <!-- <form action="">
-                                <input class="commentaire1" type="text" placeholder="Écrire un commentaire...">
-                                <input class="submitCommentaire" type="submit" value="Envoyer">
-                            </form> -->
-                        </div>
-                    </div>
-                </div>
+        <section id="title-container">
+            <div>
+                <h1 class="style">Trouve ta mocheté</h1>
+                <p class="italic">Après tout la beauté est suggestive</p>
+            </div>
+        </section>
+        <!-- CORRECTION -->
+        <section id="notreSelection-container2">
+            <h2 class="style">Nos activités</h2>
+            <div id="notreSelection_filtre">
+            </div>
+            <form action="">
+                <div id="notreSelection_card-container"></div>
             </section>
             <div id="reservation-button">
-                <input type="date">
+                <input type="date" id="date" name="date">
                 <input type="submit" value="Réserver">
             </div>
         </form>
@@ -147,5 +70,6 @@
             <img src="../ressource/icons/heart.png" alt="">
         </div>
     </footer>
+    <script src="../script/reservation.js"></script>
 </body>
 </html>

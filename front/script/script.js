@@ -21,22 +21,3 @@ function menuOff1() {
   main1.style.flexDirection = "column";
   footer1.style.display = "flex";
 }
-
-isSelectedOrNot = 0;
-
-function isSelected(animalNumber) {
-  selected = document.getElementById("selection" + animalNumber);
-  if (isSelectedOrNot % 2 == 0) {
-    selected.value = "Sélectionner";
-    selected.style.backgroundColor = "#FFFFFF";
-    selected.style.borderColor = "#000000";
-    selected.style.color = "#000000";
-    isSelectedOrNot++;
-  } else if (isSelectedOrNot % 2 == 1) {
-    selected.value = "Sélectionné";
-    selected.style.backgroundColor = "#2D7819";
-    selected.style.borderColor = "#2D7819";
-    selected.style.color = "#FFFFFF";
-    isSelectedOrNot++;
-  }
-}

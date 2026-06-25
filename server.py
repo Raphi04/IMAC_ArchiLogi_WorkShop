@@ -174,7 +174,7 @@ def activiteGetEspece(idActivite):
     response = activiteService.activiteGetEspece(idActivite)
     return response
 
-@app.route("/activite/animal/<idActivite>", methods=["GET"])
+@app.route("/activite/animal/<idActivite>", methods=["POST"])
 def activiteGetAnimals(idActivite):
     json = request.get_json()
     response = activiteService.activiteGetAnimals(json["date"], idActivite)
