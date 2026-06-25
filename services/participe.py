@@ -41,6 +41,7 @@ def createParticipe(idName, idAnimal, idActivite, date) :
     enteredDate = datetime.strptime(date, "%Y-%m-%d")
     dateNow = datetime.now().strftime("%Y-%m-%d")
 
+
     if(enteredDate < datetime.strptime(dateNow, "%Y-%m-%d")) :
         response = {
             "message" : "Veuillez selectionner une date supérieur ou égale à celle actuelle",

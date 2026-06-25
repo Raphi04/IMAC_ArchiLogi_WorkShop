@@ -55,12 +55,13 @@
             <h2 class="style">Nos activités</h2>
             <div id="notreSelection_filtre">
             </div>
-            <form action="">
+            <form id="reservationForm">
                 <div id="notreSelection_card-container"></div>
             </section>
             <div id="reservation-button">
-                <input type="date" id="date" name="date">
-                <input type="submit" value="Réserver">
+                <p id="message"></p>
+                <input type="date" id="date" name="date" onChange="changeDate()">
+                <input type="submit" value="Réserver" id="sendReservation">
             </div>
         </form>
     </main>

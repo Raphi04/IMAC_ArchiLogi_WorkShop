@@ -2,6 +2,9 @@ from flask import jsonify
 
 import models.activite as activiteModel
 import models.fiche_animal as fiche_animalModel
+import models.commentaire as commentaireModel
+import models.note as noteModel
+
 import services.fiche_animal as fiche_animalService
 
 def createActivite(name) :
@@ -112,7 +115,19 @@ def activiteGetAnimals(date, idActivite) :
                     checkAvailability = fiche_animalService.checkAvailability(animal["animal"]["idAnimal"], date)
 
                     if(checkAvailability["code"] == 200) :
+                        idAnimal = animal["animal"]["idAnimal"]
+                        getComms = commentaireModel.getByAnimal(idAnimal)
+                        if(getComms["code"] == 200) :
+                            animal["commentaires"] = getComms["commentaires"]
+
+                        # On récupère la note moyenne
+                        getAVGNote = noteModel.getAvgNoteAnimal(idAnimal)
+                        if(getAVGNote["code"] == 200) :
+                            animal["moyenne-note"] = getAVGNote["note"]["moyenne-note"]
+
                         response["fiches_animal"].append(animal)
+
+
     else :
         response = {
             "message" : "Aucune espèce n'est lié à cette activité",
