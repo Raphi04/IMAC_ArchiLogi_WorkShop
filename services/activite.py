@@ -2,6 +2,7 @@ from flask import jsonify
 
 import models.activite as activiteModel
 import models.fiche_animal as fiche_animalModel
+import services.fiche_animal as fiche_animalService
 
 def createActivite(name) :
     name = name.strip()
@@ -66,7 +67,15 @@ def activiteGetEspece(idActivite) :
     # On renvoie les informations des activités
     return response
 
-def activiteGetAnimals(idActivite) :
+def activiteGetAnimals(date, idActivite) :
+    # On vérifie qu'on a bien une activité
+    if(not date) :
+        response = {
+            "message" : "Il manque la date",
+            "code" : 422
+        }
+        return response
+
     # On vérifie qu'on a bien une activité
     if(not idActivite) :
         response = {
@@ -92,14 +101,23 @@ def activiteGetAnimals(idActivite) :
     }
 
     # On récupère les idEspeces
-    checkIdEspeces = activiteModel.getEspecesByActiviteId(idActivite)["especes"]
+    checkIdEspeces = activiteModel.getEspecesByActiviteId(idActivite)
 
-    for idEspece in checkIdEspeces :
-        animalsList = fiche_animalModel.getByEspece(idEspece["idEspece"])
-        print(animalsList)
-        if(animalsList["code"] == 200) :
-            for animal in animalsList["fiches_animal"] :
-                response["fiches_animal"].append(animal)
+    if(checkIdEspeces["code"] == 200) :
+        for idEspece in checkIdEspeces["especes"] :
+            animalsList = fiche_animalModel.getByEspece(idEspece["idEspece"])
+
+            if(animalsList["code"] == 200) :
+                for animal in animalsList["fiches_animal"] :
+                    checkAvailability = fiche_animalService.checkAvailability(animal["animal"]["idAnimal"], date)
+
+                    if(checkAvailability["code"] == 200) :
+                        response["fiches_animal"].append(animal)
+    else :
+        response = {
+            "message" : "Aucune espèce n'est lié à cette activité",
+            "code" : 404
+        }
 
     # On renvoie les informations des activités
     return response

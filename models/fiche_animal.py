@@ -226,3 +226,38 @@ def delete(idAnimal) :
     myDb.close()
 
     return response
+
+def getReservation(idAnimal) :
+    # Connexion à la BDD
+    myDb = connectToDB()
+    myCursor = myDb.cursor(buffered=True)
+
+    # Get des dates
+    sql = f'''SELECT date FROM participe WHERE idAnimal = {idAnimal}'''
+
+    myCursor.execute(sql)
+    myDb.commit()
+
+    datas = myCursor.fetchall()
+
+    if(datas):
+        response = {
+            "reservationsDate" : [],
+            "code" : 200
+        }
+
+        for data in datas :        
+            response["reservationsDate"].append(data[0])
+    
+    else :
+        response = {
+            "message" : "Réservations non trouvées",
+            "code" : 404
+        }
+
+    # Fermeture de la connexion
+    myCursor.close()
+    myDb.close()
+
+    return response
+

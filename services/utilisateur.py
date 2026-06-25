@@ -207,7 +207,7 @@ def connectUtilisateur(idName, pwd) :
         return response
 
     # On teste si l'identifiant existe
-    checkName = utilisateurModel.get(idName)
+    checkName = utilisateurModel.getUtilisateurById(idName)
 
     if(checkName["code"] == 404) :
         # L'utilisateur n'existe pas

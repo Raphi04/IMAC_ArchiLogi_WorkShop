@@ -44,8 +44,19 @@ def createInclue(idEspece, idActivite) :
         }
         return response
 
+    # On vérifie que l'inclusion n'est pas en doublon
+    checkInclue = inclueModel.getIncluByForeignKey(idEspece, idActivite)
+
+    if(checkInclue["code"] == 200) :
+        # L'inclusion existe déjà
+        response = {
+            "message" : " L'inclusion existe déjà",
+            "code" : 400
+        }
+        return response
+
     # On créé l'inclusion
-    inclueModel.create(idEspece,idActivite)
+    inclueModel.create(idEspece, idActivite)
 
     # On renvoie une réponse
     response = {
@@ -131,9 +142,20 @@ def updateInclue(idInclue,idEspece,idActivite) :
             "code" : 422
         }
         return response
+
+    # On vérifie que l'inclusion n'est pas en doublon
+    checkInclue = inclueModel.getIncluByForeignKey(idEspece, idActivite)
+
+    if(checkInclue["code"] == 200) :
+        # L'inclusion existe déjà
+        response = {
+            "message" : " L'inclusion existe déjà",
+            "code" : 400
+        }
+        return response
     
     # On modifie l'inclusion
-    inclueModel.update(idInclue,idEspece,idActivite)
+    inclueModel.update(idInclue, idEspece, idActivite)
     response = {
             "message" : "L'inclusion a été correctement modifié",
             "code" : 200

@@ -7,6 +7,8 @@ import models.fiche_animal as fiche_animalModel
 import models.activite as activiteModel
 import models.participe as participeModel
 
+import services.fiche_animal as fiche_animalService
+
 def createParticipe(idName, idAnimal, idActivite, date) :
     if(not idName) :
         response = {
@@ -82,21 +84,34 @@ def createParticipe(idName, idAnimal, idActivite, date) :
     # On vérifie que l'animal à le droit de participer
     idEspece = fiche_animalModel.getById(idAnimal)["fiche_animal"]["espece"]["idEspece"]
 
-    especesParticipante = activiteModel.getEspecesByActiviteId(idActivite)["especes"]
+    especesParticipante = activiteModel.getEspecesByActiviteId(idActivite)
 
-    for especeParticipante in especesParticipante :
-        if(idEspece == especeParticipante["idEspece"]):
-            # On créé la fiche animal
-            participeModel.create(idName, idAnimal, idActivite, date)
-            
-            # On renvoie une réponse
-            response = {
-                "message" : "La participation a été correctement ajouté",
-                "code" : 200
-            }
-            
-            return response
-    
+    if(especesParticipante["code"] == 200) :
+        for especeParticipante in especesParticipante["especes"] :
+            if(idEspece == especeParticipante["idEspece"]):
+
+                checkAvailability = fiche_animalService.checkAvailability(idAnimal, date)
+
+                if(checkAvailability["code"] == 200) :
+                    # On créé la participation
+                    participeModel.create(idName, idAnimal, idActivite, date)
+                    
+                    # On renvoie une réponse
+                    response = {
+                        "message" : "La participation a été correctement ajouté",
+                        "code" : 200
+                    }
+                
+                    return response
+                
+                else :
+                    # On renvoie une réponse
+                    response = {
+                        "message" : "L'animal est déjà pris ce jour là",
+                        "code" : 400
+                    }
+                    return response
+
     # L'animal ne peut pas participer
     response = {
         "message" : "L'animal ne peut pas participer",
@@ -218,7 +233,15 @@ def updateParticipe(idParticipe, idName, idAnimal, idActivite, date) :
         }
         return response
 
-    print(date)
+    checkAvailability = fiche_animalService.checkAvailability(idAnimal, date)
+
+    if(checkAvailability["code"] == 400) :
+        # On renvoie une réponse
+        response = {
+            "message" : "L'animal est déjà pris ce jour là",
+            "code" : 400
+        }
+        return response
 
     # On modifie la participation
     participeModel.update(idParticipe, idName, idAnimal, idActivite, date)
