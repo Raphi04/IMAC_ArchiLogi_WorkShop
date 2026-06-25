@@ -3,6 +3,8 @@ pwd = localStorage.getItem("pwd");
 
 animalContainer = document.getElementById("notreSelection_card-container");
 
+especeContainer= document.getElementById("notreSelection_filtre");
+
 async function getAnimals() {
   try {
     const response = await fetch(back + "fiche_animal", {
@@ -68,7 +70,32 @@ async function getAnimals() {
     console.log(error);
   }
 }
+// ---------------------- YANIS FILTRE ESPECE ---------------------------
 
+async function addFiltre() {
+  try {
+    const response = await fetch(back + "especes", {
+      method: "GET",
+    });
+
+    if (!response.ok) {
+      throw new Error(`Ça marche pas ! ${response.status}`);
+    }
+
+    data = await response.json();
+
+    if (data["code"] == 200) {
+      data["especes"].forEach((espece) => {
+        especeContainer.innerHTML += `
+          <button id="${espece["name"]}">Mammifères</button>
+        `;
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+// -------------------------------------------------
 async function onLoad() {
   code = await checkIfConnected(idName, pwd);
 
